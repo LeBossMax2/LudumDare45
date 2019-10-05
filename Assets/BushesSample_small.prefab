@@ -12,8 +12,11 @@ GameObject:
   - component: {fileID: 4357261080934512591}
   - component: {fileID: 5551717930227768962}
   - component: {fileID: 7543181077641544684}
+  - component: {fileID: 3755705520910410051}
+  - component: {fileID: 4986325144193388712}
+  - component: {fileID: 4986325144193388713}
   m_Layer: 0
-  m_Name: BushesSampleSmall
+  m_Name: BushesSample_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,6 +90,48 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &3755705520910410051
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7334961626882155413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.4068617
+  m_Height: 10.093031
+  m_Direction: 1
+  m_Center: {x: -0.026902556, y: 1.6368444, z: 0.42714977}
+--- !u!136 &4986325144193388712
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7334961626882155413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.1613007
+  m_Height: 6.724774
+  m_Direction: 1
+  m_Center: {x: -0.61019754, y: 0.25453478, z: -4.088608}
+--- !u!136 &4986325144193388713
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7334961626882155413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2213957
+  m_Height: 7.4401703
+  m_Direction: 1
+  m_Center: {x: 2.7364333, y: 0.3104182, z: 1.4452267}
 --- !u!21 &-2684345454013888321
 Material:
   serializedVersion: 6
