@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1229785711047749243, guid: 9be4e3420318aa24fa1aee75a7617860,
         type: 3}
       propertyPath: m_Name
-      value: SoulItemFireRate
+      value: SoulItemFireRate Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1229785711047749247, guid: 9be4e3420318aa24fa1aee75a7617860,
         type: 3}
@@ -82,5 +82,30 @@ PrefabInstance:
       propertyPath: minValue
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1229785711047749241, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 64d4ffef14c55c5488c1ce2a8ea91c23, type: 2}
+    - target: {fileID: 1229785711047749246, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229785711047749246, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.26666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229785711047749246, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.92938375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229785711047749245, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 64d4ffef14c55c5488c1ce2a8ea91c23, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9be4e3420318aa24fa1aee75a7617860, type: 3}
