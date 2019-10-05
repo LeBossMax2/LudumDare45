@@ -13,6 +13,8 @@ public class Controller : Character
     public float reloadDelay = 10;
     public float movementSpeed = 300;
     public int damageDone = 1;
+
+    public int killCount = 0;
     
     public GameObject character;
 
