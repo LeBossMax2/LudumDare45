@@ -11,13 +11,14 @@ public class Controller : Character
     public int current_healthPoint = 1;
     // Time value
     public float reloadDelay = 10;
-    public float movementSpeed = 69.0f;
+    public float movementSpeed = 300;
     public int damageDone = 1;
     
     public GameObject character;
 
     public float bulletSpeed;
     public Bullet bullet;
+
 
     private float reloadTimer = 0;
 
@@ -31,31 +32,34 @@ public class Controller : Character
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-
+        float movementX = 0;
+        float movementZ = 0;
         if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
         float a = 1;
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
-            a = 30;
+            a = 10;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            GetComponent<Rigidbody>().velocity = Vector3.right * movementSpeed * Time.deltaTime * a;
+            movementX += movementSpeed * Time.deltaTime * a;
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            GetComponent<Rigidbody>().velocity = Vector3.left * movementSpeed * Time.deltaTime * a;
+            movementX -= movementSpeed * Time.deltaTime * a;
         }
         if (Input.GetKey(KeyCode.Z))
         {
-            GetComponent<Rigidbody>().velocity = Vector3.forward * movementSpeed * Time.deltaTime * a;
+            movementZ += movementSpeed * Time.deltaTime * a;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            GetComponent<Rigidbody>().velocity = Vector3.back * movementSpeed * Time.deltaTime * a;
+            movementZ -= movementSpeed * Time.deltaTime * a;
         }
+
+        GetComponent<Rigidbody>().velocity = new Vector3(movementX, 0, movementZ);
+
         if (Input.GetKey(KeyCode.Mouse0) && reloadTimer <= 0)
         {
             Bullet b = Instantiate(bullet);
