@@ -11,8 +11,6 @@ public class Controller : MonoBehaviour
     public float movementSpeed = 169.0f;
     public int damageDone = 1;
 
-    public GameObject character;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,19 +22,27 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            character.transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+            this.transform.position += Vector3.right * movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            character.transform.position += Vector3.left * movementSpeed * Time.deltaTime;
+            this.transform.position += Vector3.left * movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            character.transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
+            this.transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            character.transform.position += Vector3.back * movementSpeed * Time.deltaTime;
+            this.transform.position += Vector3.back * movementSpeed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            // Add fire machin.
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            //Button pause
         }
     }
 
