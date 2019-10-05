@@ -224,7 +224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42616318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.08, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -244,9 +244,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
   camHolder: {fileID: 546320204}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
   distanceRatio: 0.2
 --- !u!114 &42616325
 MonoBehaviour:
@@ -260,12 +257,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06d367b5ae969d42a2a74a4e1e86d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBad: 0
   max_healthPoint: 100
   current_healthPoint: 0
-  reloadDelay: 10
-  movementSpeed: 69
+  reloadDelay: 0.2
+  movementSpeed: 40
   damageDone: 1
   character: {fileID: 42616318}
+  bulletSpeed: 100
+  bullet: {fileID: 8547000554868698306, guid: 4d06e544901d2c047a6e786f82e719d1, type: 3}
 --- !u!1 &546320204
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812566177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
