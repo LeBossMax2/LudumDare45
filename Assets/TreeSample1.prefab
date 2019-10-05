@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7118828953146661043}
   - component: {fileID: 7383466658148373858}
   - component: {fileID: 5937657459091707392}
+  - component: {fileID: 2316640208186559073}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -79,7 +80,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -87,6 +88,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2316640208186559073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153726680833798114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b2b2a19fb211e40b06ebffff3a775d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!21 &-819352849962047924
 Material:
   serializedVersion: 6
@@ -184,8 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 12106, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Tree Data
   m_EditorClassIdentifier: 
-  _uniqueID: 70
-  materialHash: 31d6cfe0d16ae931b73c59d7e0c089c0-583008256
+  _uniqueID: 84
+  materialHash: 8d6c0cc73b318dc4ec02d185b4b42d29-583008256
   root:
     _uniqueID: 1
     seed: 1234
@@ -397,7 +410,7 @@ MonoBehaviour:
     childGroupIDs: 3d000000
     lodQualityMultiplier: 1
     geometryMode: 0
-    materialBranch: {fileID: 0}
+    materialBranch: {fileID: 2100000, guid: bbe87169dee1b9e4db24d85318091770, type: 2}
     materialBreak: {fileID: 0}
     materialFrond: {fileID: 0}
     height: {x: 10, y: 15}
@@ -635,7 +648,7 @@ MonoBehaviour:
     childGroupIDs: 
     lodQualityMultiplier: 1
     geometryMode: 0
-    materialBranch: {fileID: 0}
+    materialBranch: {fileID: 2100000, guid: bbe87169dee1b9e4db24d85318091770, type: 2}
     materialBreak: {fileID: 0}
     materialFrond: {fileID: 0}
     height: {x: 0.1, y: 3.0493155}
