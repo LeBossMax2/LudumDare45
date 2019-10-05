@@ -6,14 +6,29 @@ public class SoolItem : MonoBehaviour
 {
     public enum BonusType
     {
-        HP,
+        Max_HP,
+        HP_Regen,
         Dmg,
         Speed,
         FireRate
     }
 
     public BonusType type;
-    public int value;
+    public int minValue;
+    public int maxValue;
+    private int value;
+
+    private ItemSpawner spawner;
+
+    private void Awake()
+    {
+        value = Random.Range(minValue, maxValue);
+    }
+
+    public void Init(ItemSpawner spawner)
+    {
+        this.spawner = spawner;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,8 +37,12 @@ public class SoolItem : MonoBehaviour
         {
             switch (type)
             {
-                case BonusType.HP:
+                case BonusType.Max_HP:
                     c.max_healthPoint += value;
+                    c.regen(value);
+                    break;
+                case BonusType.HP_Regen:
+                    c.regen(value * c.max_healthPoint / 100);
                     break;
                 case BonusType.Dmg:
                     c.damageDone += value;
@@ -34,6 +53,11 @@ public class SoolItem : MonoBehaviour
                 case BonusType.FireRate:
                     c.reloadDelay *= (value / 100.0f);
                     break;
+            }
+            if (spawner != null)
+            {
+                spawner.IsItemPresent = false;
+                spawner = null;
             }
             Destroy(gameObject);
         }

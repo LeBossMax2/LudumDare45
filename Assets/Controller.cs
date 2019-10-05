@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Controller : Character
 {
+    public static int killCount = 0;
+
     private CameraTarget cam;
 
     public int max_healthPoint = 100;
@@ -13,8 +16,6 @@ public class Controller : Character
     public float reloadDelay = 10;
     public float movementSpeed = 300;
     public int damageDone = 1;
-
-    public int killCount = 0;
     
     public GameObject character;
 
@@ -28,6 +29,7 @@ public class Controller : Character
     // Start is called before the first frame update
     void Start()
     {
+        killCount = 0;
         current_healthPoint = this.max_healthPoint;
         cam = GetComponent<CameraTarget>();
     }
@@ -92,6 +94,12 @@ public class Controller : Character
     public void die()
     {
         RestartGame();
+    }
+
+    public void regen(int value)
+    {
+        current_healthPoint += value;
+        if (current_healthPoint > max_healthPoint) current_healthPoint = max_healthPoint;
     }
 
     public override void damage(int value)

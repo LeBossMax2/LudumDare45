@@ -14,6 +14,7 @@ public class Ennemy_Controller : Character
 
     public void die()
     {
+        Controller.killCount++;
         Destroy(gameObject);
     }
 

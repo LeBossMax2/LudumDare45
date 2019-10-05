@@ -13,8 +13,9 @@ public class HudController : MonoBehaviour
 
     private void Update()
     {
-        timer.text = ((int)Time.realtimeSinceStartup).ToString();
-        hp.text = player.current_healthPoint.ToString();
-        kills.text = player.killCount.ToString();
+        int time = (int)Time.realtimeSinceStartup;
+        timer.text = (time/60).ToString("D2") + ":" + (time % 60).ToString("D2");
+        hp.text = player.current_healthPoint + " / " + player.max_healthPoint;
+        kills.text = Controller.killCount.ToString();
     }
 }

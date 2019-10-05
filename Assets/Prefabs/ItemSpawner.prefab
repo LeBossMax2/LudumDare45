@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &316868567097462080
+--- !u!1 &2658628415234486816
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 316868567097462082}
-  - component: {fileID: 316868567097462083}
+  - component: {fileID: 2658628415234486822}
+  - component: {fileID: 2658628415234486817}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: ItemSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &316868567097462082
+--- !u!4 &2658628415234486822
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316868567097462080}
+  m_GameObject: {fileID: 2658628415234486816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0.58, z: 2.4}
+  m_LocalPosition: {x: 0.58, y: 0.23, z: 1.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &316868567097462083
+--- !u!114 &2658628415234486817
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316868567097462080}
+  m_GameObject: {fileID: 2658628415234486816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1acc42729ee498f4dac3998196dc0427, type: 3}
+  m_Script: {fileID: 11500000, guid: ea9beb82876b81748a097692fa4fab06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cd_spawn: 10
+  cd_spawn: 5
   Prefabs:
-  - {fileID: 7374696646111471038, guid: e62834cd47bc410468a438c009b06e83, type: 3}
+  - {fileID: 1675755693115068730, guid: 8c90bb57fcf63934e9088c0a46e36b4d, type: 3}
+  - {fileID: 7694535718838928440, guid: 375a870b74ec6dd4aab5c5dac0be903c, type: 3}
+  - {fileID: 7672487335983589617, guid: 87a46d048a233124eb65edcf9d62a422, type: 3}
+  - {fileID: 2924713313391924790, guid: d6620c0f306a6734ba97b792f7857573, type: 3}
+  - {fileID: 5535290097206059308, guid: d4dc8ebff52cf0241a891e5a199b6241, type: 3}
+  IsItemPresent: 0
