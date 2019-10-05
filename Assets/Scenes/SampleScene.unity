@@ -331,11 +331,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
-        type: 3}
-      propertyPath: Prefabs.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31d9b6a5e3a00304a96da1f35dffac38, type: 3}
 --- !u!1 &705507993
@@ -593,6 +588,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2055900643429063754, guid: 511a0db98129cea4293b7a82bf66e6d3,
+        type: 3}
+      propertyPath: camHolder
+      value: 
+      objectReference: {fileID: 546320204}
+    - target: {fileID: 2055900643429063754, guid: 511a0db98129cea4293b7a82bf66e6d3,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 2055900643429063757, guid: 511a0db98129cea4293b7a82bf66e6d3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -648,16 +653,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2055900643429063754, guid: 511a0db98129cea4293b7a82bf66e6d3,
-        type: 3}
-      propertyPath: camHolder
-      value: 
-      objectReference: {fileID: 546320204}
-    - target: {fileID: 2055900643429063754, guid: 511a0db98129cea4293b7a82bf66e6d3,
-        type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 963194227}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 511a0db98129cea4293b7a82bf66e6d3, type: 3}
 --- !u!114 &1085922048 stripped
@@ -790,7 +785,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.33333334
+  m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 5327397338c9d154c9bba03d0d4614f0, type: 2}
 --- !u!1001 &1874995118

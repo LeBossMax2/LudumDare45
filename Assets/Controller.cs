@@ -64,21 +64,23 @@ public class Controller : Character
         }
 
         GetComponent<Rigidbody>().velocity = new Vector3(movementX, 0, movementZ);
-        
+        Vector3 mouseDir = cam.getMousePosInWorld() - transform.position;
+        mouseDir.y = 0;
+
         if (hasWeapon && Input.GetKey(KeyCode.Mouse0) && reloadTimer <= 0)
         {
             Bullet b = Instantiate(bullet);
             b.transform.position = transform.position;
             b.damage = damageDone;
-            Vector3 dir = cam.getMousePosInWorld() - transform.position;
-            dir.y = 0;
-            b.shoot(bulletSpeed, dir);
+            b.shoot(bulletSpeed, mouseDir);
             reloadTimer = reloadDelay;
         }
         if (Input.GetKey(KeyCode.Escape))
         {
             //Button pause
         }
+
+        transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
 
         if (this.transform.position.y <= -10 || this.current_healthPoint <= 0)
         {

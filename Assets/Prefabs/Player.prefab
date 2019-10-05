@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2055900643429063757}
-  - component: {fileID: 2055900643429063758}
+  - component: {fileID: 4478948937024937077}
   - component: {fileID: 2055900643429064625}
   - component: {fileID: 2055900643429063754}
   - component: {fileID: 2055900643429063755}
@@ -35,18 +35,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0.26000002, z: 0}
---- !u!65 &2055900643429063758
-BoxCollider:
+--- !u!136 &4478948937024937077
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055900643429064624}
-  m_Material: {fileID: 13400000, guid: cbcd1cbf1a062b04a86307a41969647b, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Radius: 0.5
+  m_Height: 1.5
+  m_Direction: 1
   m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!54 &2055900643429064625
 Rigidbody:
@@ -62,7 +63,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &2055900643429063754
 MonoBehaviour:
