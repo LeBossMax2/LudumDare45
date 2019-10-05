@@ -808,7 +808,7 @@ PrefabInstance:
     - target: {fileID: 595024495667578932, guid: bb8f8dec5948dec4f8e5549d37cd6256,
         type: 3}
       propertyPath: m_Name
-      value: Pumkin
+      value: PumkinMonster
       objectReference: {fileID: 0}
     - target: {fileID: 595024495667578933, guid: bb8f8dec5948dec4f8e5549d37cd6256,
         type: 3}
