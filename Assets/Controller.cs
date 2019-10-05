@@ -38,6 +38,14 @@ public class Controller : MonoBehaviour
         {
             character.transform.position += Vector3.back * movementSpeed * Time.deltaTime;
         }
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            // Add fire machin.
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            //Button pause
+        }
     }
 
     public void die()
