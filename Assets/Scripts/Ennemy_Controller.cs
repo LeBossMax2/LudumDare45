@@ -21,7 +21,7 @@ public class Ennemy_Controller : Character
     public override void damage(int value)
     {
         current_healthPoint -= value;
-        if (current_healthPoint == 0)
+        if (current_healthPoint <= 0)
         {
             die();
         }

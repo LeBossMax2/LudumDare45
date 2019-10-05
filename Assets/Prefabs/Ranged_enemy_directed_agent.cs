@@ -36,22 +36,9 @@ public class Ranged_enemy_directed_agent : MonoBehaviour
 
     public void MoveToLocation()
     {
-        float x = this.transform.position.x - player.transform.position.x;
-        float z = this.transform.position.z - player.transform.position.z;
-        if (x < 0)
-            x = player.transform.position.x + distance;
-        else
-        {
-            x = player.transform.position.x - distance;
-        }
-        if (z < 0)
-            z = player.transform.position.x + distance;
-        else
-        {
-            z = player.transform.position.x - distance;
-        }
+        Vector3 dist = this.transform.position - player.transform.position;
 
-        agent.destination = new Vector3(x, 0, z);
+        agent.destination = player.transform.position + dist.normalized * distance;
         agent.isStopped = false;
     }
 
@@ -63,7 +50,7 @@ public class Ranged_enemy_directed_agent : MonoBehaviour
             nextActionTime += period;
             MoveToLocation();
         }
-        if (cd_fire_counter > cd_fire)
+        if (cd_fire_counter > cd_fire && (this.transform.position - player.transform.position).sqrMagnitude <= (distance + 1) * distance)
         {
             Fire();
             cd_fire_counter = 0;
@@ -72,6 +59,8 @@ public class Ranged_enemy_directed_agent : MonoBehaviour
         {
             cd_fire_counter += Time.deltaTime;
         }
+        Vector3 dir = player.transform.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
 
     }
     private void Fire()
