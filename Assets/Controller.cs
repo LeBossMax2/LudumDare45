@@ -26,6 +26,8 @@ public class Controller : Character
 
     private float reloadTimer = 0;
 
+    private Vector2 movement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +36,12 @@ public class Controller : Character
         cam = GetComponent<CameraTarget>();
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        float movementX = 0;
-        float movementZ = 0;
+        movement.x = 0;
+        movement.y = 0;
         if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
         float a = 1;
         if (Input.GetKey(KeyCode.LeftControl))
@@ -48,22 +51,21 @@ public class Controller : Character
 
         if (Input.GetKey(KeyCode.D))
         {
-            movementX += movementSpeed * Time.deltaTime * a;
+            movement.x += movementSpeed * a;
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            movementX -= movementSpeed * Time.deltaTime * a;
+            movement.x -= movementSpeed * a;
         }
         if (Input.GetKey(KeyCode.Z))
         {
-            movementZ += movementSpeed * Time.deltaTime * a;
+            movement.y += movementSpeed * a;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            movementZ -= movementSpeed * Time.deltaTime * a;
+            movement.y -= movementSpeed * a;
         }
 
-        GetComponent<Rigidbody>().velocity = new Vector3(movementX, 0, movementZ);
         Vector3 mouseDir = cam.getMousePosInWorld() - transform.position;
         mouseDir.y = 0;
 
@@ -86,6 +88,11 @@ public class Controller : Character
         {
             RestartGame();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        GetComponent<Rigidbody>().velocity = new Vector3(movement.x * Time.fixedDeltaTime, 0, movement.y * Time.fixedDeltaTime);
     }
 
     public void RestartGame()
