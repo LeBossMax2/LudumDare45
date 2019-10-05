@@ -261,7 +261,7 @@ MonoBehaviour:
   max_healthPoint: 100
   current_healthPoint: 0
   reloadDelay: 0.2
-  movementSpeed: 300
+  movementSpeed: 100
   damageDone: 1
   character: {fileID: 42616318}
   bulletSpeed: 100

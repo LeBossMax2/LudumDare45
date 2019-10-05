@@ -18,7 +18,8 @@ public class Controller : Character
 
     public float bulletSpeed;
     public Bullet bullet;
-
+    
+    public bool hasWeapon = false;
 
     private float reloadTimer = 0;
 
@@ -59,8 +60,8 @@ public class Controller : Character
         }
 
         GetComponent<Rigidbody>().velocity = new Vector3(movementX, 0, movementZ);
-
-        if (Input.GetKey(KeyCode.Mouse0) && reloadTimer <= 0)
+        
+        if (hasWeapon && Input.GetKey(KeyCode.Mouse0) && reloadTimer <= 0)
         {
             Bullet b = Instantiate(bullet);
             b.transform.position = transform.position;
