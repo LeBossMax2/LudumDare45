@@ -31,31 +31,30 @@ public class Controller : Character
     // Update is called once per frame
     void Update()
     {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+
         if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
-        ForceMode f;
+        float a = 1;
         if (Input.GetKey(KeyCode.Space))
         {
-            f = ForceMode.Impulse;
-        } else
-        {
-            f = ForceMode.Force;
+            a = 30;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.right * movementSpeed * Time.deltaTime, f);
+            GetComponent<Rigidbody>().velocity = Vector3.right * movementSpeed * Time.deltaTime * a;
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.left * movementSpeed * Time.deltaTime, f);
+            GetComponent<Rigidbody>().velocity = Vector3.left * movementSpeed * Time.deltaTime * a;
         }
         if (Input.GetKey(KeyCode.Z))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.forward * movementSpeed * Time.deltaTime, f);
+            GetComponent<Rigidbody>().velocity = Vector3.forward * movementSpeed * Time.deltaTime * a;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.back * movementSpeed * Time.deltaTime, f);
+            GetComponent<Rigidbody>().velocity = Vector3.back * movementSpeed * Time.deltaTime * a;
         }
         if (Input.GetKey(KeyCode.Mouse0) && reloadTimer <= 0)
         {
