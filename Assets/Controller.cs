@@ -31,22 +31,30 @@ public class Controller : Character
     // Update is called once per frame
     void Update()
     {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+
         if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
-        if (Input.GetKey(KeyCode.RightArrow))
+        float a = 1;
+        if (Input.GetKey(KeyCode.Space))
         {
-            this.transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+            a = 30;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+
+        if (Input.GetKey(KeyCode.D))
         {
-            this.transform.position += Vector3.left * movementSpeed * Time.deltaTime;
+            GetComponent<Rigidbody>().velocity = Vector3.right * movementSpeed * Time.deltaTime * a;
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.Q))
         {
-            this.transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
+            GetComponent<Rigidbody>().velocity = Vector3.left * movementSpeed * Time.deltaTime * a;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.Z))
         {
-            this.transform.position += Vector3.back * movementSpeed * Time.deltaTime;
+            GetComponent<Rigidbody>().velocity = Vector3.forward * movementSpeed * Time.deltaTime * a;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.back * movementSpeed * Time.deltaTime * a;
         }
         if (Input.GetKey(KeyCode.Mouse0) && reloadTimer <= 0)
         {
