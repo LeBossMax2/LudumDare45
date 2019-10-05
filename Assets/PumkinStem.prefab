@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 855127939715145412}
   - component: {fileID: 1715949333108179662}
   m_Layer: 0
-  m_Name: Tree 1
+  m_Name: PumkinStem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

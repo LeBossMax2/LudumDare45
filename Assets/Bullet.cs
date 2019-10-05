@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damage = 1;
+    public float rotationSpeed = 100;
 
     public bool isBad;
 
@@ -22,6 +23,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
+        transform.localRotation = transform.localRotation * Quaternion.Euler(0, Time.deltaTime * rotationSpeed, 0);
         if (transform.position.sqrMagnitude > 20000)
         {
             Destroy(gameObject);
