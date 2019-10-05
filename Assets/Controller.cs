@@ -1,20 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
     public int max_healthPoint = 100;
-    public int current_healthPoint = 0;
+    public int current_healthPoint = 1;
     // Time value
     public float reloadDelay = 10;
-    public float movementSpeed = 169.0f;
+    public float movementSpeed = 69.0f;
     public int damageDone = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        current_healthPoint = this.max_healthPoint;
     }
 
     // Update is called once per frame
@@ -44,10 +45,20 @@ public class Controller : MonoBehaviour
         {
             //Button pause
         }
+
+        if (this.transform.position.y <= -10 || this.current_healthPoint <= 0)
+        {
+            RestartGame();
+        }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void die()
     {
-        this.Start();
+        RestartGame();
     }
 }
