@@ -59,6 +59,8 @@ public class Ranged_enemy_directed_agent : MonoBehaviour
         {
             cd_fire_counter += Time.deltaTime;
         }
+        Vector3 dir = player.transform.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
 
     }
     private void Fire()
