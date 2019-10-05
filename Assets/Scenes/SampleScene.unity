@@ -472,20 +472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2055900643429063754, guid: 511a0db98129cea4293b7a82bf66e6d3,
-        type: 3}
-      propertyPath: camHolder
-      value: 
-      objectReference: {fileID: 546320204}
-    - target: {fileID: 2055900643429063754, guid: 511a0db98129cea4293b7a82bf66e6d3,
-        type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 963194227}
     - target: {fileID: 2055900643429063757, guid: 511a0db98129cea4293b7a82bf66e6d3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.8631
+      value: 10.8
       objectReference: {fileID: 0}
     - target: {fileID: 2055900643429063757, guid: 511a0db98129cea4293b7a82bf66e6d3,
         type: 3}
@@ -495,7 +485,7 @@ PrefabInstance:
     - target: {fileID: 2055900643429063757, guid: 511a0db98129cea4293b7a82bf66e6d3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 39.449867
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 2055900643429063757, guid: 511a0db98129cea4293b7a82bf66e6d3,
         type: 3}
@@ -537,6 +527,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2055900643429063754, guid: 511a0db98129cea4293b7a82bf66e6d3,
+        type: 3}
+      propertyPath: camHolder
+      value: 
+      objectReference: {fileID: 546320204}
+    - target: {fileID: 2055900643429063754, guid: 511a0db98129cea4293b7a82bf66e6d3,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 963194227}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 511a0db98129cea4293b7a82bf66e6d3, type: 3}
 --- !u!114 &1085922048 stripped
