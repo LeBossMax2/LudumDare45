@@ -33,7 +33,7 @@ public class SoolItem : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Controller c = other.GetComponent<Controller>();
-        if (c != null && !c.isBad)
+        if (c != null && !c.isBad && c.HasWeapon)
         {
             switch (type)
             {
@@ -49,6 +49,7 @@ public class SoolItem : MonoBehaviour
                     break;
                 case BonusType.Speed:
                     c.movementSpeed += value;
+                    if (c.movementSpeed > c.maxSpeed) c.movementSpeed = c.maxSpeed;
                     break;
                 case BonusType.FireRate:
                     c.reloadDelay *= (value / 100.0f);

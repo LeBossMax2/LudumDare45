@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     public GameObject[] Prefabs_secondLevel;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Spawn();
         cd += Time.deltaTime;

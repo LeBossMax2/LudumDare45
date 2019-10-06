@@ -92,7 +92,7 @@ public class Controller : Character
                 //Button pause
             }
 
-            transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
+            if (hasWeapon) transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
 
             if (this.transform.position.y <= -10 || this.current_healthPoint <= 0)
             {
