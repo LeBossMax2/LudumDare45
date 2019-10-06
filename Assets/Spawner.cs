@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     public int ennemiesPerWave = 10;
     public int levelTwoWeight = 12;
     private int ennemiesLeft = 10;
-    private int counterEnnemiesGrowRate = 0;
+    public int counterEnnemiesGrowRate = 0;
     protected float cd = 0;
     public GameObject[] Prefabs_firstLevel;
     public GameObject[] Prefabs_secondLevel;
@@ -48,12 +48,16 @@ public class Spawner : MonoBehaviour
             if(ennemiesLeft < levelTwoWeight)
             {
                 GameObject prefab = Prefabs_firstLevel[Random.Range(0, Prefabs_firstLevel.Length)];
-                Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ennemy_Controller>().current_healthPoint += counterEnnemiesGrowRate;
+                Ennemy_Controller ec = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ennemy_Controller>();
+                ec.current_healthPoint = (int)(ec.current_healthPoint*Mathf.Max(1,Mathf.Pow(1.1F, counterEnnemiesGrowRate)));
+                ec.movementSpeed = Mathf.Min(Controller.maxSpeed*1.1F, ec.movementSpeed*Mathf.Pow(1.1F,counterEnnemiesGrowRate));
                 ennemiesLeft--;
             } else
             {
                 GameObject prefab = Prefabs_secondLevel[Random.Range(0, Prefabs_secondLevel.Length)];
-                Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ranged_enemy_controllers>().current_healthPoint += counterEnnemiesGrowRate;
+                Ranged_enemy_controllers ec = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ranged_enemy_controllers>();
+                ec.current_healthPoint = ec.current_healthPoint * Mathf.Max(1, (int)(Mathf.Pow(1.1F, counterEnnemiesGrowRate)));
+                ec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.3F, ec.movementSpeed * Mathf.Pow(1.1F, counterEnnemiesGrowRate));
                 ennemiesLeft -= levelTwoWeight;
             }
 

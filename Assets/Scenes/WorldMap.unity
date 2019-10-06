@@ -2621,6 +2621,11 @@ PrefabInstance:
       propertyPath: hudController
       value: 
       objectReference: {fileID: 1610043014}
+    - target: {fileID: 4374505481772775062, guid: 84047050acc7216438167fb893757508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84047050acc7216438167fb893757508, type: 3}
 --- !u!1001 &282079182
@@ -3109,6 +3114,11 @@ PrefabInstance:
       propertyPath: hudController
       value: 
       objectReference: {fileID: 1610043014}
+    - target: {fileID: 4374505481772775062, guid: 84047050acc7216438167fb893757508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84047050acc7216438167fb893757508, type: 3}
 --- !u!1001 &320487198
@@ -5914,11 +5924,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4374505481772775062, guid: 84047050acc7216438167fb893757508,
         type: 3}
-      propertyPath: cd_spawn
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 4374505481772775062, guid: 84047050acc7216438167fb893757508,
-        type: 3}
       propertyPath: hudController
       value: 
       objectReference: {fileID: 1610043014}
@@ -8262,7 +8267,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960860602}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d27fd4d7422984247ad6ffa8a4131a39, type: 3}
@@ -8731,7 +8736,7 @@ PrefabInstance:
     - target: {fileID: 2589458380262043979, guid: 8c7cdee1848ca214faaf14057e47de97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.23078918
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 2589458380262043979, guid: 8c7cdee1848ca214faaf14057e47de97,
         type: 3}
@@ -8741,7 +8746,7 @@ PrefabInstance:
     - target: {fileID: 2589458380262043979, guid: 8c7cdee1848ca214faaf14057e47de97,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.50716
+      value: -4.98
       objectReference: {fileID: 0}
     - target: {fileID: 2589458380262043979, guid: 8c7cdee1848ca214faaf14057e47de97,
         type: 3}
@@ -10088,7 +10093,7 @@ PrefabInstance:
     - target: {fileID: 7285228592450578532, guid: 48f88487b1b444c4da356b0422f4be23,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.056694
+      value: 16.99
       objectReference: {fileID: 0}
     - target: {fileID: 7285228592450578532, guid: 48f88487b1b444c4da356b0422f4be23,
         type: 3}
@@ -10098,7 +10103,7 @@ PrefabInstance:
     - target: {fileID: 7285228592450578532, guid: 48f88487b1b444c4da356b0422f4be23,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.029644
+      value: -11.75
       objectReference: {fileID: 0}
     - target: {fileID: 7285228592450578532, guid: 48f88487b1b444c4da356b0422f4be23,
         type: 3}
@@ -11993,7 +11998,7 @@ PrefabInstance:
     - target: {fileID: 9065315793848784272, guid: 1ee8ffe50009021439b9709558f9f5be,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.48057
+      value: 19.07
       objectReference: {fileID: 0}
     - target: {fileID: 9065315793848784272, guid: 1ee8ffe50009021439b9709558f9f5be,
         type: 3}
@@ -12003,7 +12008,7 @@ PrefabInstance:
     - target: {fileID: 9065315793848784272, guid: 1ee8ffe50009021439b9709558f9f5be,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.58102417
+      value: -1.22
       objectReference: {fileID: 0}
     - target: {fileID: 9065315793848784272, guid: 1ee8ffe50009021439b9709558f9f5be,
         type: 3}
@@ -18292,7 +18297,7 @@ PrefabInstance:
     - target: {fileID: 2658628415234486822, guid: 7d2f92c3763d1734c9a6281d8d207c7f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.353
       objectReference: {fileID: 0}
     - target: {fileID: 2658628415234486822, guid: 7d2f92c3763d1734c9a6281d8d207c7f,
         type: 3}
@@ -20767,6 +20772,11 @@ PrefabInstance:
       propertyPath: hudController
       value: 
       objectReference: {fileID: 1610043014}
+    - target: {fileID: 4374505481772775062, guid: 84047050acc7216438167fb893757508,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84047050acc7216438167fb893757508, type: 3}
 --- !u!1001 &4629842300116629896

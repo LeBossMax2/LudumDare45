@@ -16,7 +16,7 @@ public class Controller : Character
     // Time value
     public float reloadDelay = 10;
     public float movementSpeed = 300;
-    public float maxSpeed = 800;
+    public static float maxSpeed = 800;
     public int damageDone = 1;
     
     public GameObject character;
