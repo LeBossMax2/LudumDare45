@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Controller : Character
 {
+    private bool stopTime = false;
     public static int killCount = 0;
 
     private CameraTarget cam;
@@ -40,53 +41,63 @@ public class Controller : Character
     // Update is called once per frame
     void Update()
     {
-        movement.x = 0;
-        movement.y = 0;
-        if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
-        float a = 1;
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
         {
-            a = 10;
+            stopTime = !stopTime;
+            Time.timeScale = stopTime ? 0 : 1;
         }
+        if(0 != Time.timeScale)
+        {
+            movement.x = 0;
+            movement.y = 0;
+            if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
+            float a = 1;
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                a = 10;
+            }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            movement.x += movementSpeed * a;
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            movement.x -= movementSpeed * a;
-        }
-        if (Input.GetKey(KeyCode.Z))
-        {
-            movement.y += movementSpeed * a;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            movement.y -= movementSpeed * a;
-        }
 
-        Vector3 mouseDir = cam.getMousePosInWorld() - transform.position;
-        mouseDir.y = 0;
 
-        if (hasWeapon && Input.GetKey(KeyCode.Mouse0) && reloadTimer <= 0)
-        {
-            Bullet b = Instantiate(bullet);
-            b.transform.position = transform.position;
-            b.damage = damageDone;
-            b.shoot(bulletSpeed, mouseDir);
-            reloadTimer = reloadDelay;
-        }
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            //Button pause
-        }
+            if (Input.GetKey(KeyCode.D))
+            {
+                movement.x += movementSpeed * a;
+            }
+            if (Input.GetKey(KeyCode.Q))
+            {
+                movement.x -= movementSpeed * a;
+            }
+            if (Input.GetKey(KeyCode.Z))
+            {
+                movement.y += movementSpeed * a;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                movement.y -= movementSpeed * a;
+            }
 
-        transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
+            Vector3 mouseDir = cam.getMousePosInWorld() - transform.position;
+            mouseDir.y = 0;
 
-        if (this.transform.position.y <= -10 || this.current_healthPoint <= 0)
-        {
-            RestartGame();
+            if (hasWeapon && Input.GetKey(KeyCode.Mouse0) && reloadTimer <= 0)
+            {
+                Bullet b = Instantiate(bullet);
+                b.transform.position = transform.position;
+                b.damage = damageDone;
+                b.shoot(bulletSpeed, mouseDir);
+                reloadTimer = reloadDelay;
+            }
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                //Button pause
+            }
+
+            transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
+
+            if (this.transform.position.y <= -10 || this.current_healthPoint <= 0)
+            {
+                RestartGame();
+            }
         }
     }
 

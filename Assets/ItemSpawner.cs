@@ -12,7 +12,7 @@ public class ItemSpawner : Spawner
         {
             if (!IsItemPresent)
             {
-                GameObject prefab = Prefabs[Random.Range(0, Prefabs.Length)];
+                GameObject prefab = Prefabs_firstLevel[Random.Range(0, Prefabs_firstLevel.Length)];
                 SoolItem item = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<SoolItem>();
                 item.Init(this);
                 IsItemPresent = true;
