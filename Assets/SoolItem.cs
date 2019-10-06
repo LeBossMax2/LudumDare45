@@ -33,7 +33,7 @@ public class SoolItem : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Controller c = other.GetComponent<Controller>();
-        if (c != null && !c.isBad)
+        if (c != null && !c.isBad && c.HasWeapon)
         {
             switch (type)
             {

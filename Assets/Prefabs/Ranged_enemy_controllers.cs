@@ -11,6 +11,7 @@ public class Ranged_enemy_controllers : Character
 
     public void die()
     {
+        Controller.killCount++;
         Destroy(gameObject);
     }
 

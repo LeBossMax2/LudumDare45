@@ -21,8 +21,11 @@ public class Controller : Character
 
     public float bulletSpeed;
     public Bullet bullet;
+
+    public GameObject skull;
+    public GameObject soul;
     
-    public bool hasWeapon = false;
+    private bool hasWeapon = false;
 
     private float reloadTimer = 0;
 
@@ -82,7 +85,7 @@ public class Controller : Character
             //Button pause
         }
 
-        transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
+        if (hasWeapon) transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
 
         if (this.transform.position.y <= -10 || this.current_healthPoint <= 0)
         {
@@ -117,4 +120,13 @@ public class Controller : Character
         if (current_healthPoint <= 0)
             die();
     }
+
+    public void setHasWeapon()
+    {
+        skull.SetActive(true);
+        soul.SetActive(false);
+        hasWeapon = true;
+    }
+
+    public bool HasWeapon { get => hasWeapon; }
 }
