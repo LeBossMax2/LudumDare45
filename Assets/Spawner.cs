@@ -14,23 +14,31 @@ public class Spawner : MonoBehaviour
     public GameObject[] Prefabs_firstLevel;
     public GameObject[] Prefabs_secondLevel;
 
+    public bool inUse = true;
+    public HudController hudController;
+
     // Update is called once per frame
     private void Update()
     {
-        Spawn();
-        cd += Time.deltaTime;
-
-        if(ennemiesLeft <= 0)
+        if (inUse)
         {
-            if(ennemiesPerWave >= maxEnnemiesPerWave)
+            Spawn();
+            cd += Time.deltaTime;
+
+            if (ennemiesLeft <= 0)
             {
-                counterEnnemiesGrowRate++;
-            } else
-            {
-                ennemiesPerWave += 2;
+                if (ennemiesPerWave >= maxEnnemiesPerWave)
+                {
+                    counterEnnemiesGrowRate++;
+                }
+                else
+                {
+                    ennemiesPerWave += 2;
+                }
+                ennemiesLeft = ennemiesPerWave;
             }
-            ennemiesLeft = ennemiesPerWave;
         }
+        inUse = 40 > (hudController.ennemiesCount - Controller.killCount);
     }
 
     protected virtual void Spawn()
@@ -48,6 +56,8 @@ public class Spawner : MonoBehaviour
                 Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ranged_enemy_controllers>().current_healthPoint += counterEnnemiesGrowRate;
                 ennemiesLeft -= levelTwoWeight;
             }
+
+            hudController.ennemiesCount++;
             cd = 0;
         }
     }

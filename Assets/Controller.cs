@@ -110,7 +110,8 @@ public class Controller : Character
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
     public void die()
