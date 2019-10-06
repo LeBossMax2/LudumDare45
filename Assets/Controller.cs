@@ -16,14 +16,18 @@ public class Controller : Character
     // Time value
     public float reloadDelay = 10;
     public float movementSpeed = 300;
+    public float maxSpeed = 800;
     public int damageDone = 1;
     
     public GameObject character;
 
     public float bulletSpeed;
     public Bullet bullet;
-    
-    public bool hasWeapon = false;
+
+    public GameObject skull;
+    public GameObject soul;
+
+    private bool hasWeapon = false;
 
     private float reloadTimer = 0;
 
@@ -126,4 +130,13 @@ public class Controller : Character
         if (current_healthPoint <= 0)
             die();
     }
+
+    public void setHasWeapon()
+    {
+        skull.SetActive(true);
+        soul.SetActive(false);
+        hasWeapon = true;
+    }
+
+    public bool HasWeapon { get => hasWeapon; }
 }
