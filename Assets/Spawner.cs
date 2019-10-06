@@ -49,8 +49,10 @@ public class Spawner : MonoBehaviour
             {
                 GameObject prefab = Prefabs_firstLevel[Random.Range(0, Prefabs_firstLevel.Length)];
                 Ennemy_Controller ec = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ennemy_Controller>();
-                ec.current_healthPoint = (int)(ec.current_healthPoint*Mathf.Max(1,Mathf.Pow(1.1F, counterEnnemiesGrowRate)));
-                ec.movementSpeed = Mathf.Min(Controller.maxSpeed*1.1F, ec.movementSpeed*Mathf.Pow(1.1F,counterEnnemiesGrowRate));
+                if(ec != null) {
+                    ec.current_healthPoint = (int)(ec.current_healthPoint * Mathf.Max(1, Mathf.Pow(1.1F, counterEnnemiesGrowRate)));
+                    ec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.1F, ec.movementSpeed * Mathf.Pow(1.1F, counterEnnemiesGrowRate));
+                }
                 ennemiesLeft--;
             } else
             {

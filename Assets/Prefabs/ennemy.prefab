@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBad: 1
-  current_healthPoint: 10
+  current_healthPoint: 8
   movementSpeed: 10
   damageDone: 1
   period: 1

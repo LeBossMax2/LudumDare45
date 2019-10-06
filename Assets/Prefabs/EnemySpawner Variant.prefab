@@ -148,7 +148,54 @@ PrefabInstance:
     - target: {fileID: 316868567097462080, guid: 31d9b6a5e3a00304a96da1f35dffac38,
         type: 3}
       propertyPath: m_Name
-      value: EnemySpawner (3)
+      value: EnemySpawner Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
+        type: 3}
+      propertyPath: Prefabs_firstLevel.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
+        type: 3}
+      propertyPath: Prefabs_secondLevel.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
+        type: 3}
+      propertyPath: cd_spawn
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
+        type: 3}
+      propertyPath: maxEnnemiesPerWave
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
+        type: 3}
+      propertyPath: ennemiesPerWave
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
+        type: 3}
+      propertyPath: counterEnnemiesGrowRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
+        type: 3}
+      propertyPath: Prefabs_firstLevel.Array.data[0]
+      value: 
+      objectReference: {fileID: 7374696646111471038, guid: e62834cd47bc410468a438c009b06e83,
+        type: 3}
+    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
+        type: 3}
+      propertyPath: Prefabs_secondLevel.Array.data[0]
+      value: 
+      objectReference: {fileID: 694118128817593730, guid: b06e9586bf2235f4d84f54d745f9832c,
+        type: 3}
+    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
+        type: 3}
+      propertyPath: levelTwoWeight
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 316868567097462082, guid: 31d9b6a5e3a00304a96da1f35dffac38,
         type: 3}
@@ -205,48 +252,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
-        type: 3}
-      propertyPath: Prefabs_firstLevel.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
-        type: 3}
-      propertyPath: Prefabs_secondLevel.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
-        type: 3}
-      propertyPath: cd_spawn
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
-        type: 3}
-      propertyPath: maxEnnemiesPerWave
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
-        type: 3}
-      propertyPath: ennemiesPerWave
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
-        type: 3}
-      propertyPath: counterEnnemiesGrowRate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
-        type: 3}
-      propertyPath: Prefabs_firstLevel.Array.data[0]
-      value: 
-      objectReference: {fileID: 7374696646111471038, guid: e62834cd47bc410468a438c009b06e83,
-        type: 3}
-    - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
-        type: 3}
-      propertyPath: Prefabs_secondLevel.Array.data[0]
-      value: 
-      objectReference: {fileID: 694118128817593730, guid: b06e9586bf2235f4d84f54d745f9832c,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31d9b6a5e3a00304a96da1f35dffac38, type: 3}
 --- !u!4 &4374505481772775063 stripped
