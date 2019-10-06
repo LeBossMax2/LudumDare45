@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class menuManager : MonoBehaviour
 {
+
+    public GameObject panel_help;
+    public GameObject panel_infos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +29,15 @@ public class menuManager : MonoBehaviour
     public void exitGame()
     {
         Application.Quit();
+    }
+
+    public void showHideInfos()
+    {
+        panel_infos.SetActive(!panel_infos.activeSelf);
+    }
+
+    public void showHideHelp()
+    {
+        panel_help.SetActive(!panel_help.activeSelf); ;
     }
 }

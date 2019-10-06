@@ -66,8 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBad: 1
-  current_healthPoint: 8
-  movementSpeed: 10
+  current_healthPoint: 6
+  movementSpeed: 18
   damageDone: 1
 --- !u!195 &694118128817593731
 NavMeshAgent:

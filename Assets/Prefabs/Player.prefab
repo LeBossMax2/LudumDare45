@@ -97,8 +97,7 @@ MonoBehaviour:
   max_healthPoint: 100
   current_healthPoint: 100
   reloadDelay: 0.5
-  movementSpeed: 200
-  maxSpeed: 800
+  movementSpeed: 300
   damageDone: 1
   character: {fileID: 2055900643429064624}
   bulletSpeed: 10
@@ -177,6 +176,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5735642258789350640, guid: 2370286e22e8b9b4280583d1ea75063b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3948636664355094164, guid: 2370286e22e8b9b4280583d1ea75063b,
         type: 3}
       propertyPath: m_Enabled
@@ -193,11 +197,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8246629919470002314, guid: 2370286e22e8b9b4280583d1ea75063b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735642258789350640, guid: 2370286e22e8b9b4280583d1ea75063b,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -227,41 +226,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Soul
-      objectReference: {fileID: 0}
-    - target: {fileID: 5037783716410484765, guid: 430c5b2d02839f14bae945ecd5803861,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 189159d7843adc84795285b5e10d76da, type: 2}
-    - target: {fileID: 5037783716410484766, guid: 430c5b2d02839f14bae945ecd5803861,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5037783716410484760, guid: 430c5b2d02839f14bae945ecd5803861,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5037783716410484761, guid: 430c5b2d02839f14bae945ecd5803861,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 189159d7843adc84795285b5e10d76da, type: 2}
-    - target: {fileID: 5037783716410484762, guid: 430c5b2d02839f14bae945ecd5803861,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.39215684
-      objectReference: {fileID: 0}
-    - target: {fileID: 5037783716410484762, guid: 430c5b2d02839f14bae945ecd5803861,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.5420954
-      objectReference: {fileID: 0}
-    - target: {fileID: 5037783716410484762, guid: 430c5b2d02839f14bae945ecd5803861,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5037783716410484763, guid: 430c5b2d02839f14bae945ecd5803861,
         type: 3}
@@ -317,6 +281,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037783716410484765, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 189159d7843adc84795285b5e10d76da, type: 2}
+    - target: {fileID: 5037783716410484766, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037783716410484760, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037783716410484761, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 189159d7843adc84795285b5e10d76da, type: 2}
+    - target: {fileID: 5037783716410484762, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.39215684
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037783716410484762, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5420954
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037783716410484762, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 430c5b2d02839f14bae945ecd5803861, type: 3}
