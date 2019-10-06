@@ -15,6 +15,7 @@ public class Controller : Character
     // Time value
     public float reloadDelay = 10;
     public float movementSpeed = 300;
+    public float maxSpeed = 800;
     public int damageDone = 1;
     
     public GameObject character;
@@ -54,19 +55,19 @@ public class Controller : Character
 
         if (Input.GetKey(KeyCode.D))
         {
-            movement.x += movementSpeed * a;
+            movement.x += movementSpeed;
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            movement.x -= movementSpeed * a;
+            movement.x -= movementSpeed;
         }
         if (Input.GetKey(KeyCode.Z))
         {
-            movement.y += movementSpeed * a;
+            movement.y += movementSpeed;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            movement.y -= movementSpeed * a;
+            movement.y -= movementSpeed;
         }
 
         Vector3 mouseDir = cam.getMousePosInWorld() - transform.position;

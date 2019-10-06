@@ -97,7 +97,8 @@ MonoBehaviour:
   max_healthPoint: 100
   current_healthPoint: 100
   reloadDelay: 0.2
-  movementSpeed: 100
+  movementSpeed: 200
+  maxSpeed: 800
   damageDone: 1
   character: {fileID: 2055900643429064624}
   bulletSpeed: 10
@@ -176,11 +177,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5088102508775331766, guid: 2370286e22e8b9b4280583d1ea75063b, type: 3}
-    - {fileID: 8246629919470002314, guid: 2370286e22e8b9b4280583d1ea75063b, type: 3}
-    - {fileID: 5241907181761590194, guid: 2370286e22e8b9b4280583d1ea75063b, type: 3}
-    - {fileID: 3948636664355094164, guid: 2370286e22e8b9b4280583d1ea75063b, type: 3}
+    - target: {fileID: 3948636664355094164, guid: 2370286e22e8b9b4280583d1ea75063b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241907181761590194, guid: 2370286e22e8b9b4280583d1ea75063b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088102508775331766, guid: 2370286e22e8b9b4280583d1ea75063b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246629919470002314, guid: 2370286e22e8b9b4280583d1ea75063b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735642258789350640, guid: 2370286e22e8b9b4280583d1ea75063b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2370286e22e8b9b4280583d1ea75063b, type: 3}
 --- !u!1 &5017142751177420543 stripped
 GameObject:
@@ -211,6 +233,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 189159d7843adc84795285b5e10d76da, type: 2}
+    - target: {fileID: 5037783716410484766, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5037783716410484761, guid: 430c5b2d02839f14bae945ecd5803861,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -286,8 +313,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5037783716410484766, guid: 430c5b2d02839f14bae945ecd5803861, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 430c5b2d02839f14bae945ecd5803861, type: 3}
 --- !u!1 &4518011849644615715 stripped
 GameObject:
