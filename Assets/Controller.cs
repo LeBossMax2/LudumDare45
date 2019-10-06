@@ -16,14 +16,18 @@ public class Controller : Character
     // Time value
     public float reloadDelay = 10;
     public float movementSpeed = 300;
+    public float maxSpeed = 800;
     public int damageDone = 1;
     
     public GameObject character;
 
     public float bulletSpeed;
     public Bullet bullet;
-    
-    public bool hasWeapon = false;
+
+    public GameObject skull;
+    public GameObject soul;
+
+    private bool hasWeapon = false;
 
     private float reloadTimer = 0;
 
@@ -57,39 +61,37 @@ public class Controller : Character
                 a = 10;
             }
 
+            float inputX = Input.GetAxis("Horizontal");
+            float inputY = Input.GetAxis("Vertical");
 
+            if (inputX > 0)
+            {
+                movement.x += movementSpeed;
+            }
+            else if (inputX < 0)
+            {
+                movement.x -= movementSpeed;
+            }
 
-            if (Input.GetKey(KeyCode.D))
+            if (inputY > 0)
             {
-                movement.x += movementSpeed * a;
+                movement.y += movementSpeed;
             }
-            if (Input.GetKey(KeyCode.Q))
+            else if (inputY < 0)
             {
-                movement.x -= movementSpeed * a;
-            }
-            if (Input.GetKey(KeyCode.Z))
-            {
-                movement.y += movementSpeed * a;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                movement.y -= movementSpeed * a;
+                movement.y -= movementSpeed;
             }
 
             Vector3 mouseDir = cam.getMousePosInWorld() - transform.position;
             mouseDir.y = 0;
 
-            if (hasWeapon && Input.GetKey(KeyCode.Mouse0) && reloadTimer <= 0)
+            if (hasWeapon && Input.GetAxis("Fire1") > 0 && reloadTimer <= 0)
             {
                 Bullet b = Instantiate(bullet);
                 b.transform.position = transform.position;
                 b.damage = damageDone;
                 b.shoot(bulletSpeed, mouseDir);
                 reloadTimer = reloadDelay;
-            }
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                //Button pause
             }
 
             if (hasWeapon) transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
@@ -128,4 +130,13 @@ public class Controller : Character
         if (current_healthPoint <= 0)
             die();
     }
+
+    public void setHasWeapon()
+    {
+        skull.SetActive(true);
+        soul.SetActive(false);
+        hasWeapon = true;
+    }
+
+    public bool HasWeapon { get => hasWeapon; }
 }
