@@ -35,8 +35,8 @@ public class Ennemy_Controller : Character
             if (ch != null && ch.isBad != isBad)
             {
                 ch.damage(damageDone);
+                nextActionTime = Time.time + period;
             }
-                nextActionTime += period;
         }
     }
 }

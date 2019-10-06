@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9beb82876b81748a097692fa4fab06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cd_spawn: 20
+  cd_spawn: 50
   maxEnnemiesPerWave: 30
   ennemiesPerWave: 10
+  levelTwoWeight: 12
   Prefabs_firstLevel:
   - {fileID: 1675755693115068730, guid: 8c90bb57fcf63934e9088c0a46e36b4d, type: 3}
   - {fileID: 7694535718838928440, guid: 375a870b74ec6dd4aab5c5dac0be903c, type: 3}

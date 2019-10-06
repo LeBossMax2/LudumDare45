@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     public float cd_spawn = 150;
     public int maxEnnemiesPerWave = 30;
     public int ennemiesPerWave = 10;
+    public int levelTwoWeight = 12;
     private int ennemiesLeft = 10;
     private int counterEnnemiesGrowRate = 0;
     protected float cd = 0;
@@ -36,18 +37,16 @@ public class Spawner : MonoBehaviour
     {
         if (cd >= cd_spawn/ennemiesPerWave)
         {
-            if(ennemiesLeft < 10)
+            if(ennemiesLeft < levelTwoWeight)
             {
                 GameObject prefab = Prefabs_firstLevel[Random.Range(0, Prefabs_firstLevel.Length)];
-                prefab.GetComponent<Ennemy_Controller>().current_healthPoint += counterEnnemiesGrowRate;
-                Instantiate(prefab, this.transform.position, Quaternion.identity);
+                Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ennemy_Controller>().current_healthPoint += counterEnnemiesGrowRate;
                 ennemiesLeft--;
             } else
             {
                 GameObject prefab = Prefabs_secondLevel[Random.Range(0, Prefabs_secondLevel.Length)];
-                prefab.GetComponent<Ranged_enemy_controllers>().current_healthPoint += counterEnnemiesGrowRate;
-                Instantiate(prefab, this.transform.position, Quaternion.identity);
-                ennemiesLeft -= 10;
+                Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ranged_enemy_controllers>().current_healthPoint += counterEnnemiesGrowRate;
+                ennemiesLeft -= levelTwoWeight;
             }
             cd = 0;
         }

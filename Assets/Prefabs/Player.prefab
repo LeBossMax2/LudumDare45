@@ -96,7 +96,7 @@ MonoBehaviour:
   isBad: 0
   max_healthPoint: 100
   current_healthPoint: 100
-  reloadDelay: 0.2
+  reloadDelay: 0.5
   movementSpeed: 200
   maxSpeed: 800
   damageDone: 1
@@ -237,6 +237,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037783716410484760, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5037783716410484761, guid: 430c5b2d02839f14bae945ecd5803861,
         type: 3}
