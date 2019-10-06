@@ -6,6 +6,13 @@ public class ItemSpawner : Spawner
 {
     public bool IsItemPresent;
 
+    // Update is called once per frame
+    private void Update()
+    {
+        Spawn();
+        if (!IsItemPresent) cd += Time.deltaTime;
+    }
+
     protected override void Spawn()
     {
         if (cd >= cd_spawn)
