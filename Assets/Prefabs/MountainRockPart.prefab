@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 840009243672434177}
   - component: {fileID: 840009243672434178}
   - component: {fileID: 840009243672434179}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MountainRockPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}

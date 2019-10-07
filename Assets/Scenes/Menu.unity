@@ -1165,10 +1165,10 @@ RectTransform:
   m_Father: {fileID: 1059727783}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -282, y: -16}
-  m_SizeDelta: {x: -786.43, y: -223.34}
+  m_SizeDelta: {x: 393.57, y: 356.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1013596617
 MonoBehaviour:
@@ -1441,10 +1441,10 @@ RectTransform:
   m_Father: {fileID: 1059727783}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 284.3, y: -9}
-  m_SizeDelta: {x: -783.3, y: -236.7}
+  m_SizeDelta: {x: 396.7, y: 343.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1116261743
 MonoBehaviour:
@@ -1625,13 +1625,14 @@ MonoBehaviour:
 
 
     All of the graphics were made on paint, and the models with the Unity basics forms.
-    We don''t take much time for the sound design because none of us is able to do
+    We didn''t take much time for the sound design because none of us is able to do
     it in such a short time, so we take existing sound and free of use musics. We
     did the same for the ennemies intelligence.
 
 
     Thanks to the University of Bordeaux to let us code in their buildings and to
-    gave a good and stable internet connexion (seriously, that can save a whole project)'
+    gave us a good and stable internet connexion (seriously, that can save a whole
+    project)'
 --- !u!222 &1201801347
 CanvasRenderer:
   m_ObjectHideFlags: 0
