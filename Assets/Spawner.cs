@@ -29,11 +29,11 @@ public class Spawner : MonoBehaviour
             {
                 if (ennemiesPerWave >= maxEnnemiesPerWave)
                 {
-                    counterEnnemiesGrowRate++;
+                    counterEnnemiesGrowRate+= (int)Mathf.Max(2,counterEnnemiesGrowRate*1.3F);
                 }
                 else
                 {
-                    ennemiesPerWave += 2;
+                    ennemiesPerWave ++;
                 }
                 ennemiesLeft = ennemiesPerWave;
             }

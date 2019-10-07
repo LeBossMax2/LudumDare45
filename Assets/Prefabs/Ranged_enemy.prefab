@@ -48,11 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   period: 2
-  distance: 6
-  cd_fire: 4
+  distance: 12
+  cd_fire: 1
   bullet: {fileID: 3598379583218083108, guid: 5f24c083a6b2d7b4b979b148897a408b, type: 3}
-  damageDone: 1
-  bulletSpeed: 3
+  damageDone: 4
+  bulletSpeed: 6
 --- !u!114 &4473219776911324069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBad: 1
   current_healthPoint: 6
-  movementSpeed: 18
-  damageDone: 1
+  movementSpeed: 23
+  damageDone: 4
 --- !u!195 &694118128817593731
 NavMeshAgent:
   m_ObjectHideFlags: 0
