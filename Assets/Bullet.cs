@@ -11,9 +11,17 @@ public class Bullet : MonoBehaviour
 
     private Rigidbody body;
 
+    // Sound
+    public AudioClip BulletImpact;
+    GameObject BHolder;
+    AudioSource audioBulletImpact;
+
+
     private void Awake()
     {
         body = GetComponent<Rigidbody>();
+        BHolder = GameObject.Find("BulletAudioHolder");
+        audioBulletImpact = BHolder.GetComponent<AudioSource>();
     }
 
     public void shoot(float speed, Vector3 dir)
@@ -35,6 +43,7 @@ public class Bullet : MonoBehaviour
         Character ch = other.GetComponent<Character>();
         if (ch != null && ch.isBad != isBad)
         {
+            audioBulletImpact.PlayOneShot(BulletImpact, 0.3f);
             ch.damage(damage);
         }
         if (ch == null || ch.isBad != isBad) Destroy(gameObject);

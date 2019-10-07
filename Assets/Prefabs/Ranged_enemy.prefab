@@ -69,6 +69,7 @@ MonoBehaviour:
   current_healthPoint: 6
   movementSpeed: 23
   damageDone: 4
+  GhostDeath: {fileID: 8300000, guid: 948044aa3ee2e60459b0f48da4e21a03, type: 3}
 --- !u!195 &694118128817593731
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -112,11 +113,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 203096406909686604}
     m_Modifications:
-    - target: {fileID: 1763393791577152717, guid: 5d6f0d89abbf81c46993b980258477d6,
-        type: 3}
-      propertyPath: m_Name
-      value: Ghost
-      objectReference: {fileID: 0}
     - target: {fileID: 4959640060888016490, guid: 5d6f0d89abbf81c46993b980258477d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -171,6 +167,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763393791577152717, guid: 5d6f0d89abbf81c46993b980258477d6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ghost
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3081949117405436813, guid: 5d6f0d89abbf81c46993b980258477d6, type: 3}

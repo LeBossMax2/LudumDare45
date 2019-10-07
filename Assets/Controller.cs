@@ -33,12 +33,18 @@ public class Controller : Character
 
     private Vector2 movement;
 
+    // Player Sounds
+    public AudioClip BulletShoot;
+    public AudioSource PlayerAudio;
+
+
     // Start is called before the first frame update
     void Start()
     {
         killCount = 0;
         current_healthPoint = this.max_healthPoint;
         cam = GetComponent<CameraTarget>();
+        PlayerAudio = GetComponent<AudioSource>();
     }
 
 
@@ -92,6 +98,7 @@ public class Controller : Character
                 b.damage = damageDone;
                 b.shoot(bulletSpeed, mouseDir);
                 reloadTimer = reloadDelay;
+                GetComponent<AudioSource>().PlayOneShot(BulletShoot, 0.5f);
             }
 
             if (hasWeapon) transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);

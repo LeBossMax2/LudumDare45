@@ -62,6 +62,7 @@ MonoBehaviour:
   damage: 1
   rotationSpeed: 1000
   isBad: 0
+  BulletImpact: {fileID: 8300000, guid: f9dd4211c3078ce4192b438b976a225d, type: 3}
 --- !u!54 &1202505927740028095
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -85,11 +86,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2188729157003554188}
     m_Modifications:
-    - target: {fileID: 3293400379896964433, guid: 3a03d76f9379a354083faa3322bee80c,
-        type: 3}
-      propertyPath: m_Name
-      value: Bone
-      objectReference: {fileID: 0}
     - target: {fileID: 6777490151313676248, guid: 3a03d76f9379a354083faa3322bee80c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,6 +155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293400379896964433, guid: 3a03d76f9379a354083faa3322bee80c,
+        type: 3}
+      propertyPath: m_Name
+      value: Bone
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6839093144778876133, guid: 3a03d76f9379a354083faa3322bee80c, type: 3}

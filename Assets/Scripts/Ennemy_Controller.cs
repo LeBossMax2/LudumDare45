@@ -12,6 +12,19 @@ public class Ennemy_Controller : Character
     private float nextActionTime = 0.0f;
     public float period = 1.0f;
 
+    // Sound Effects
+    public AudioClip PumpkinDeath;
+
+    GameObject PHolder;
+    AudioSource audioPumpkinDeath;
+
+    public void Awake()
+    {
+        PHolder = GameObject.Find("PumpkinAudioHolder");
+        audioPumpkinDeath = PHolder.GetComponent<AudioSource>();
+    }
+
+
     public void die()
     {
         Controller.killCount++;
@@ -23,6 +36,7 @@ public class Ennemy_Controller : Character
         current_healthPoint -= value;
         if (current_healthPoint <= 0)
         {
+            audioPumpkinDeath.PlayOneShot(PumpkinDeath, 0.1f);
             die();
         }
     }
