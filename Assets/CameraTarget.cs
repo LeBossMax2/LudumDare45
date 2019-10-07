@@ -25,7 +25,10 @@ public class CameraTarget : MonoBehaviour
         {
             if (Input.GetAxisRaw("Dir X") == 0 && Input.GetAxis("Dir Y") == 0)
                 return lastMousePos;
-            lastMousePos = transform.position + new Vector3(Input.GetAxisRaw("Dir X"), 0, Input.GetAxis("Dir Y")) * 10;
+            Vector3 dir = new Vector3(Input.GetAxisRaw("Dir X"), 0, Input.GetAxis("Dir Y"));
+            if (dir.sqrMagnitude > 1.0f)
+                dir.Normalize();
+            lastMousePos = transform.position + dir * 10;
             return lastMousePos;
         }
         else

@@ -125,6 +125,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8900410266071111148}
     m_Modifications:
+    - target: {fileID: 8692395924656373536, guid: 698d35a57fe84514b98fdc9f7912ef20,
+        type: 3}
+      propertyPath: m_Name
+      value: PumkinMonster
+      objectReference: {fileID: 0}
     - target: {fileID: 8692395924656373537, guid: 698d35a57fe84514b98fdc9f7912ef20,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -195,10 +200,43 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9
       objectReference: {fileID: 0}
-    - target: {fileID: 8692395924656373536, guid: 698d35a57fe84514b98fdc9f7912ef20,
+    - target: {fileID: 1439696040, guid: 698d35a57fe84514b98fdc9f7912ef20, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488331040, guid: 698d35a57fe84514b98fdc9f7912ef20, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692395924640236972, guid: 698d35a57fe84514b98fdc9f7912ef20,
         type: 3}
-      propertyPath: m_Name
-      value: PumkinMonster
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692395925709512742, guid: 698d35a57fe84514b98fdc9f7912ef20,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692395926168775361, guid: 698d35a57fe84514b98fdc9f7912ef20,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692395926203017373, guid: 698d35a57fe84514b98fdc9f7912ef20,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692395926399134657, guid: 698d35a57fe84514b98fdc9f7912ef20,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692395926525183070, guid: 698d35a57fe84514b98fdc9f7912ef20,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 698d35a57fe84514b98fdc9f7912ef20, type: 3}
