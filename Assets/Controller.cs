@@ -33,19 +33,25 @@ public class Controller : Character
 
     private Vector2 movement;
 
+    // Player Sounds
+    public AudioClip BulletShoot;
+    public AudioSource PlayerAudio;
+
+
     // Start is called before the first frame update
     void Start()
     {
         killCount = 0;
         current_healthPoint = this.max_healthPoint;
         cam = GetComponent<CameraTarget>();
+        PlayerAudio = GetComponent<AudioSource>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton1))
         {
             stopTime = !stopTime;
             Time.timeScale = stopTime ? 0 : 1;
@@ -55,11 +61,6 @@ public class Controller : Character
             movement.x = 0;
             movement.y = 0;
             if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
-            float a = 1;
-            if (Input.GetKey(KeyCode.LeftControl))
-            {
-                a = 10;
-            }
 
             float inputX = Input.GetAxis("Horizontal");
             float inputY = Input.GetAxis("Vertical");
@@ -92,6 +93,7 @@ public class Controller : Character
                 b.damage = damageDone;
                 b.shoot(bulletSpeed, mouseDir);
                 reloadTimer = reloadDelay;
+                GetComponent<AudioSource>().PlayOneShot(BulletShoot, 0.5f);
             }
 
             if (hasWeapon) transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
