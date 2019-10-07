@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7668083482572695669}
   - component: {fileID: 5634467516757029901}
   - component: {fileID: 3213643756075759774}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2658628415234486822}
   - component: {fileID: 2658628415234486817}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

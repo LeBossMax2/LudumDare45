@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1867750992}
   - component: {fileID: 1867750991}
   - component: {fileID: 1867750993}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,12 @@ PrefabInstance:
     - target: {fileID: 316868567097462080, guid: 31d9b6a5e3a00304a96da1f35dffac38,
         type: 3}
       propertyPath: m_Name
-      value: EnemySpawner (1)
+      value: EnemySpawner Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 316868567097462080, guid: 31d9b6a5e3a00304a96da1f35dffac38,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 316868567097462083, guid: 31d9b6a5e3a00304a96da1f35dffac38,
         type: 3}
