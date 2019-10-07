@@ -50,7 +50,7 @@ MonoBehaviour:
   period: 2
   distance: 12
   cd_fire: 1
-  bullet: {fileID: 5146779376485435578, guid: 5f24c083a6b2d7b4b979b148897a408b, type: 3}
+  bullet: {fileID: 3598379583218083108, guid: 5f24c083a6b2d7b4b979b148897a408b, type: 3}
   damageDone: 4
   bulletSpeed: 12
 --- !u!114 &4473219776911324069
@@ -113,6 +113,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 203096406909686604}
     m_Modifications:
+    - target: {fileID: 1763393791577152717, guid: 5d6f0d89abbf81c46993b980258477d6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ghost
+      objectReference: {fileID: 0}
     - target: {fileID: 4959640060888016490, guid: 5d6f0d89abbf81c46993b980258477d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -167,11 +172,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763393791577152717, guid: 5d6f0d89abbf81c46993b980258477d6,
-        type: 3}
-      propertyPath: m_Name
-      value: Ghost
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3081949117405436813, guid: 5d6f0d89abbf81c46993b980258477d6, type: 3}
