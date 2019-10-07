@@ -37,7 +37,7 @@ public class CameraTarget : MonoBehaviour
             Ray r = cam.ScreenPointToRay(Input.mousePosition);
             if (groundPlane.Raycast(r, out dist))
                 lastMousePos = r.GetPoint(dist);
-            return Vector3.zero;
+            return lastMousePos;
         }
     }
 }
