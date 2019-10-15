@@ -41,11 +41,15 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Character ch = other.GetComponent<Character>();
+        Bullet bu = other.GetComponent<Bullet>();
         if (ch != null && ch.isBad != isBad)
         {
             audioBulletImpact.PlayOneShot(BulletImpact, 0.3f);
             ch.damage(damage);
         }
-        if (ch == null || ch.isBad != isBad) Destroy(gameObject);
+        if ((ch == null || ch.isBad != isBad) && (bu == null || bu.isBad != isBad))
+        {
+            Destroy(gameObject);
+        }
     }
 }

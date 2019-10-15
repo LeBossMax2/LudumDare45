@@ -14,10 +14,12 @@ public class Controller : Character
     public int max_healthPoint = 100;
     public int current_healthPoint = 1;
     // Time value
-    public float reloadDelay = 10;
     public float movementSpeed = 300;
     public static float maxSpeed = 800;
+
+    public float reloadDelay = 10;
     public int damageDone = 1;
+    public int levelOfWeapon = 0;
     
     public GameObject character;
 
@@ -88,12 +90,7 @@ public class Controller : Character
 
             if (hasWeapon && Input.GetAxis("Fire1") > 0 && reloadTimer <= 0)
             {
-                Bullet b = Instantiate(bullet);
-                b.transform.position = transform.position;
-                b.damage = damageDone;
-                b.shoot(bulletSpeed, mouseDir);
-                reloadTimer = reloadDelay;
-                GetComponent<AudioSource>().PlayOneShot(BulletShoot, 0.5f);
+                fire(mouseDir);
             }
 
             if (hasWeapon) transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
@@ -103,6 +100,61 @@ public class Controller : Character
                 RestartGame();
             }
         }
+    }
+
+    private void fire(Vector3 mouseDir)
+    {
+        if(damageDone >=5 || reloadDelay <= 0.1F)
+        {
+            levelOfWeapon++;
+            damageDone = 1;
+            reloadDelay = 0.5F;
+        }
+        switch (levelOfWeapon)
+        {
+            case 2:
+                Bullet b2 = Instantiate(bullet);
+                b2.transform.position = transform.position;
+                b2.damage = damageDone;
+                Vector3 dirB2 = mouseDir;
+                if((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
+                {
+                    dirB2.x += -2;
+                    dirB2.z += 2;
+                } else
+                {
+                    dirB2.x += 2;
+                    dirB2.z += 2;
+                }
+                b2.shoot(bulletSpeed, dirB2);
+
+                Bullet b2_1 = Instantiate(bullet);
+                b2_1.transform.position = transform.position;
+                b2_1.damage = damageDone;
+                Vector3 dirB2_1 = mouseDir;
+                if ((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
+                {
+                    dirB2_1.x += 2;
+                    dirB2_1.z += -2;
+                }
+                else
+                {
+                    dirB2_1.x += -2;
+                    dirB2_1.z += -2;
+                }
+                b2_1.shoot(bulletSpeed, dirB2_1);
+                break;
+            case 1:
+            default:
+                Bullet b = Instantiate(bullet);
+                b.transform.position = transform.position;
+                b.damage = (int)(damageDone* Mathf.Pow(1.1F,levelOfWeapon));
+                b.shoot(bulletSpeed, mouseDir);
+                break;
+        }
+
+        GetComponent<AudioSource>().PlayOneShot(BulletShoot, 0.5f);
+        reloadTimer = reloadDelay;
     }
 
     private void FixedUpdate()
@@ -139,6 +191,7 @@ public class Controller : Character
         skull.SetActive(true);
         soul.SetActive(false);
         hasWeapon = true;
+        levelOfWeapon = 1;
     }
 
     public bool HasWeapon { get => hasWeapon; }

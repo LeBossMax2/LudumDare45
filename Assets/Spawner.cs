@@ -57,7 +57,7 @@ public class Spawner : MonoBehaviour
                 Ennemy_Controller ec = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ennemy_Controller>();
                 if(ec != null) {
                     ec.current_healthPoint = (int)(ec.current_healthPoint * Mathf.Max(1, Mathf.Pow(1.1F, counterEnnemiesGrowRate)));
-                    ec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.1F, ec.movementSpeed * Mathf.Pow(1.2F, counterEnnemiesGrowRate));
+                    ec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.3F, ec.movementSpeed * Mathf.Pow(1.2F, counterEnnemiesGrowRate));
                 }
                 ennemiesLeft--;
             } else
@@ -65,11 +65,11 @@ public class Spawner : MonoBehaviour
                 GameObject prefab = Prefabs_secondLevel[Random.Range(0, Prefabs_secondLevel.Length)];
                 Ranged_enemy_controllers ec = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ranged_enemy_controllers>();
                 ec.current_healthPoint = ec.current_healthPoint * Mathf.Max(1, (int)(Mathf.Pow(1.1F, counterEnnemiesGrowRate)));
-                ec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.3F, ec.movementSpeed * Mathf.Pow(1.2F, counterEnnemiesGrowRate));
+                ec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.5F, ec.movementSpeed * Mathf.Pow(1.2F, counterEnnemiesGrowRate));
 
                 Ranged_enemy_directed_agent dirAgent = ec.GetComponent<Ranged_enemy_directed_agent>();
                 dirAgent.cd_fire = dirAgent.cd_fire * Mathf.Min(1, (Mathf.Pow(0.9F, counterEnnemiesGrowRate)));
-                dirAgent.bulletSpeed = dirAgent.bulletSpeed * Mathf.Max(1, (int)(Mathf.Pow(1.05F, counterEnnemiesGrowRate)));
+                dirAgent.bulletSpeed = dirAgent.bulletSpeed * Mathf.Min(Mathf.Max(1, (int)(Mathf.Pow(1.05F, counterEnnemiesGrowRate))),Controller.maxSpeed*1.3F);
 
                 ennemiesLeft -= levelTwoWeight;
             }
