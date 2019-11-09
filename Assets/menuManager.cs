@@ -26,6 +26,16 @@ public class menuManager : MonoBehaviour
         SceneManager.LoadScene("WorldMap", LoadSceneMode.Single);
     }
 
+    public void unpauseGame()
+    {
+        foreach (AudioSource audioSource in (FindObjectOfType<Controller>().cam.camHolder.GetComponentsInChildren<AudioSource>()))
+        {
+            audioSource.UnPause();
+        }
+        Time.timeScale = 1;
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Pause").buildIndex);
+    }
+
     public void exitGame()
     {
         Application.Quit();

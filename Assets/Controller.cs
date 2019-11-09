@@ -9,7 +9,7 @@ public class Controller : Character
     private bool stopTime = false;
     public static int killCount = 0;
 
-    private CameraTarget cam;
+    public CameraTarget cam;
 
     public int max_healthPoint = 100;
     public int current_healthPoint = 1;
@@ -53,13 +53,19 @@ public class Controller : Character
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton1))
-        {
-            stopTime = !stopTime;
-            Time.timeScale = stopTime ? 0 : 1;
-        }
         if(0 != Time.timeScale)
         {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton1))
+            {
+                stopTime = !stopTime;
+                Time.timeScale = stopTime ? 0 : 1;
+                foreach(AudioSource audioSource in (cam.camHolder.GetComponentsInChildren<AudioSource>()))
+                {
+                    audioSource.Pause();
+                }
+
+                SceneManager.LoadScene("Pause",LoadSceneMode.Additive);
+            }
             movement.x = 0;
             movement.y = 0;
             if (reloadTimer > 0) reloadTimer -= Time.deltaTime;

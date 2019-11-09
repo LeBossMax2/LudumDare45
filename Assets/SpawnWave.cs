@@ -37,21 +37,21 @@ public class SpawnWave : MonoBehaviour
     {
         if (cd >= durationWave / ennemiesPerWave)
         {
-            GameObject prefab = ennemies[Random.Range(0, ennemies.Length)];
-            Ennemy_Controller ec = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ennemy_Controller>();
+            GameObject bagGuy = Instantiate(ennemies[Random.Range(0, ennemies.Length)], this.transform.position, Quaternion.identity);
+            Ennemy_Controller ec = bagGuy.GetComponent<Ennemy_Controller>();
             if (ec != null)
             {
                 ec.current_healthPoint = (int)(ec.current_healthPoint * Mathf.Max(1, Mathf.Pow(1.1F, HudController.currentWaveNumber-9)));
                 ec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.3F, ec.movementSpeed * Mathf.Pow(1.2F, HudController.currentWaveNumber - 9));
             } else
             {
-                Ranged_enemy_controllers rec = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ranged_enemy_controllers>();
+                Ranged_enemy_controllers rec = bagGuy.GetComponent<Ranged_enemy_controllers>();
                 if(rec != null)
                 {
-                    rec.current_healthPoint = ec.current_healthPoint * Mathf.Max(1, (int)(Mathf.Pow(1.1F, HudController.currentWaveNumber - 9)));
-                    rec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.5F, ec.movementSpeed * Mathf.Pow(1.2F, HudController.currentWaveNumber - 9));
+                    rec.current_healthPoint = rec.current_healthPoint * Mathf.Max(1, (int)(Mathf.Pow(1.1F, HudController.currentWaveNumber - 9)));
+                    rec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.5F, rec.movementSpeed * Mathf.Pow(1.2F, HudController.currentWaveNumber - 9));
 
-                    Ranged_enemy_directed_agent dirAgent = ec.GetComponent<Ranged_enemy_directed_agent>();
+                    Ranged_enemy_directed_agent dirAgent = rec.GetComponent<Ranged_enemy_directed_agent>();
                     dirAgent.cd_fire = dirAgent.cd_fire * Mathf.Min(1, (Mathf.Pow(0.9F, HudController.currentWaveNumber - 9)));
                     dirAgent.bulletSpeed = dirAgent.bulletSpeed * Mathf.Min(Mathf.Max(1, (int)(Mathf.Pow(1.05F, HudController.currentWaveNumber - 9))), Controller.maxSpeed * 1.3F);
                 }

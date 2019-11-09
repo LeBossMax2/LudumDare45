@@ -117,7 +117,7 @@ MonoBehaviour:
   movementSpeed: 20
   damageDone: 5
   period: 1
-  PumpkinDeath: {fileID: 8300000, guid: d33a8448842af274489ca89df41d087a, type: 3}
+  soundEffect_death: {fileID: 8300000, guid: d33a8448842af274489ca89df41d087a, type: 3}
 --- !u!1001 &1933211919023329894
 PrefabInstance:
   m_ObjectHideFlags: 0
