@@ -44,7 +44,7 @@ public class Spawner : MonoBehaviour
             }
             cd += Time.deltaTime;
         }
-        inUse = 40 > (hudController.ennemiesCount - Controller.killCount);
+        inUse = 40 > (HudController.ennemiesCount - Controller.killCount);
     }
 
     protected virtual void Spawn()
@@ -74,7 +74,7 @@ public class Spawner : MonoBehaviour
                 ennemiesLeft -= levelTwoWeight;
             }
 
-            hudController.ennemiesCount++;
+            HudController.ennemiesCount++;
             cd = 0;
         }
     }
