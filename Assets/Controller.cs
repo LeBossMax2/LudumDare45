@@ -29,6 +29,9 @@ public class Controller : Character
     public GameObject skull;
     public GameObject soul;
 
+    public Transform skullPos;
+    public Transform skullArrowIndicator;
+
     private bool hasWeapon = false;
 
     private float reloadTimer = 0;
@@ -99,7 +102,10 @@ public class Controller : Character
                 fire(mouseDir);
             }
 
-            if (hasWeapon) transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
+            if (hasWeapon)
+                transform.localRotation = Quaternion.LookRotation(-mouseDir, Vector3.up);
+            else if (skullArrowIndicator != null && skullPos != null)
+                skullArrowIndicator.localRotation = Quaternion.LookRotation(skullPos.position - transform.position, Vector3.up);
 
             if (this.transform.position.y <= -10 || this.current_healthPoint <= 0)
             {
