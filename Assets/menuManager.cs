@@ -36,6 +36,11 @@ public class menuManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Pause").buildIndex);
     }
 
+    public void returnMenu()
+    {
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
+
     public void exitGame()
     {
         Application.Quit();

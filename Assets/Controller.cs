@@ -170,8 +170,12 @@ public class Controller : Character
 
     public void RestartGame()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        gameOverTexts got = FindObjectOfType<gameOverTexts>();
+        if(null != got)
+        {
+            got.killNumberText.text = "Kills : " + killCount;
+        }
     }
 
     public void die()
