@@ -9,7 +9,8 @@ public class gameOverTexts : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        killNumberText.text = "Highscore : " + PlayerPrefs.GetInt("highScore",0) + "\n"
+            + "Actual score : " + PlayerPrefs.GetInt("score",0);
     }
 
     // Update is called once per frame

@@ -116,18 +116,18 @@ public class Controller : Character
 
     private void fire(Vector3 mouseDir)
     {
-        if(damageDone >=5 || reloadDelay <= 0.1F)
+        if(damageDone >=5 || reloadDelay <= 0.2F)
         {
             levelOfWeapon++;
             damageDone = Math.Max(1,damageDone/2);
-            reloadDelay = Mathf.Min(0.5F,reloadDelay*2);
+            reloadDelay = Mathf.Min(0.5F,reloadDelay+0.15F);
         }
 
         if(0 == levelOfWeapon % 2)
         {
             Bullet b2 = Instantiate(bullet);
             b2.transform.position = transform.position;
-            b2.damage = (int)(damageDone * Mathf.Pow(1.15F, levelOfWeapon));
+            b2.damage = (int)(damageDone * Mathf.Pow(2, levelOfWeapon));
             Vector3 dirB2 = mouseDir;
             if ((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
             {
@@ -142,7 +142,7 @@ public class Controller : Character
 
             Bullet b2_1 = Instantiate(bullet);
             b2_1.transform.position = transform.position;
-            b2_1.damage = (int)(damageDone * Mathf.Pow(1.15F, levelOfWeapon));
+            b2_1.damage = (int)(damageDone * Mathf.Pow(2, levelOfWeapon));
             Vector3 dirB2_1 = mouseDir;
             if ((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
             {
@@ -158,7 +158,7 @@ public class Controller : Character
         {
             Bullet b = Instantiate(bullet);
             b.transform.position = transform.position;
-            b.damage = (int)(damageDone * Mathf.Pow(1.3F, levelOfWeapon));
+            b.damage = (int)(damageDone * Mathf.Pow(2.3F, levelOfWeapon));
             b.shoot(bulletSpeed, mouseDir);
         }
 
@@ -174,11 +174,9 @@ public class Controller : Character
     public void RestartGame()
     {
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
-        gameOverTexts got = FindObjectOfType<gameOverTexts>();
-        if(null != got)
-        {
-            got.killNumberText.text = "Score : " + killCount;
-        }
+        PlayerPrefs.SetInt("score", killCount);
+        int hs = PlayerPrefs.GetInt("highscore",0);
+        PlayerPrefs.SetInt("highScore",Mathf.Max(hs,killCount));
     }
 
     public void die()

@@ -52,7 +52,7 @@ public class SpawnWave : MonoBehaviour
                 {
                     rec.current_healthPoint = rec.current_healthPoint * Mathf.Max(1, (int)(Mathf.Pow(1.1F, HudController.currentWaveNumber - 9)));
                     Ranged_enemy_directed_agent dirAgent = rec.GetComponent<Ranged_enemy_directed_agent>();
-                    dirAgent.cd_fire = dirAgent.cd_fire * Mathf.Min(1, (Mathf.Pow(0.9F, HudController.currentWaveNumber - 9)));
+                    dirAgent.cd_fire = dirAgent.cd_fire * Mathf.Min(1, (Mathf.Pow(0.86F, HudController.currentWaveNumber - 9)));
                     dirAgent.bulletSpeed = dirAgent.bulletSpeed * Mathf.Min(Mathf.Max(1, (int)(Mathf.Pow(1.05F, HudController.currentWaveNumber - 9))), Controller.maxSpeed * 1.3F);
                 }
                 Ranged_enemy_directed_agent reda = badGuy.GetComponent<Ranged_enemy_directed_agent>();
@@ -60,7 +60,7 @@ public class SpawnWave : MonoBehaviour
             }
 
             NavMeshAgent nva = badGuy.GetComponent<NavMeshAgent>();
-            nva.speed = Mathf.Min(13, nva.speed * Mathf.Pow(1.2F, HudController.currentWaveNumber - 9));
+            nva.speed = Mathf.Min(13, nva.speed * Mathf.Pow(1.08F, HudController.currentWaveNumber - 9));
 
             cd = 0;
             HudController.ennemiesCount++;

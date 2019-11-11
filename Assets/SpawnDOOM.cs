@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawnDOOM : MonoBehaviour
 {
@@ -49,6 +50,8 @@ public class SpawnDOOM : MonoBehaviour
             {
                 if(null != ec)
                 {
+                    NavMeshAgent nma = badGuy.GetComponent<NavMeshAgent>();
+                    nma.speed = this.GetComponent<NavMeshAgent>().speed*1.1F;
                     ec.damageDone+=(int)(hp.current_healthPoint/2);
                 }
                 hp.current_healthPoint++;

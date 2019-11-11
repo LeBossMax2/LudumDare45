@@ -61,7 +61,7 @@ public class Spawner : MonoBehaviour
                 }
 
                 NavMeshAgent nva = badGuy.GetComponent<NavMeshAgent>();
-                nva.speed = Mathf.Min(10, nva.speed * Mathf.Pow(1.2F, counterEnnemiesGrowRate));
+                nva.speed = Mathf.Min(10,Mathf.Max(3.5F, nva.speed * Mathf.Pow(1.08F, HudController.currentWaveNumber - 9)));
                 DirectedAgent da = badGuy.GetComponent<DirectedAgent>();
                 da.period *= Mathf.Min(2, Mathf.Max(0.8F, da.period * Mathf.Pow(0.8F, counterEnnemiesGrowRate)));
 
@@ -78,7 +78,7 @@ public class Spawner : MonoBehaviour
                 dirAgent.bulletSpeed = dirAgent.bulletSpeed * Mathf.Min(Mathf.Max(1, (int)(Mathf.Pow(1.05F, counterEnnemiesGrowRate))),Controller.maxSpeed*1.3F);
 
                 NavMeshAgent nva = badGuy.GetComponent<NavMeshAgent>();
-                nva.speed = Mathf.Min(10, nva.speed * Mathf.Pow(1.2F, counterEnnemiesGrowRate));
+                nva.speed = Mathf.Min(10, Mathf.Max(3.5F, nva.speed * Mathf.Pow(1.08F, HudController.currentWaveNumber - 9)));
                 Ranged_enemy_directed_agent reda = badGuy.GetComponent<Ranged_enemy_directed_agent>();
                 reda.period *= Mathf.Min(2, Mathf.Max(0.8F, reda.period * Mathf.Pow(0.9F, counterEnnemiesGrowRate)));
 
