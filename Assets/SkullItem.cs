@@ -15,7 +15,7 @@ public class SkullItem : MonoBehaviour
         if (c != null && !c.isBad && !c.HasWeapon)
         {
             c.setHasWeapon();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

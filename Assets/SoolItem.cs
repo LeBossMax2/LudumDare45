@@ -10,7 +10,8 @@ public class SoolItem : MonoBehaviour
         HP_Regen,
         Dmg,
         Speed,
-        FireRate
+        FireRate,
+        Respawn
     }
 
     public BonusType type;
@@ -53,6 +54,9 @@ public class SoolItem : MonoBehaviour
                     break;
                 case BonusType.FireRate:
                     c.reloadDelay *= (value / 100.0f);
+                    break;
+                case BonusType.Respawn:
+                    c.soulCounter += value;
                     break;
             }
             if (spawner != null)

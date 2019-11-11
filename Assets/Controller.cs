@@ -19,7 +19,7 @@ public class Controller : Character
 
     public float reloadDelay = 10;
     public int damageDone = 1;
-    public int levelOfWeapon = 0;
+    public int levelOfWeapon = 1;
     
     public GameObject character;
 
@@ -32,6 +32,8 @@ public class Controller : Character
     public Transform skullPos;
     public Transform skullArrowIndicator;
 
+    public int soulCounter = 1;
+
     private bool hasWeapon = false;
 
     private float reloadTimer = 0;
@@ -42,6 +44,8 @@ public class Controller : Character
     public AudioClip BulletShoot;
     public AudioSource PlayerAudio;
 
+    private Vector3 spawnPos;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +54,7 @@ public class Controller : Character
         current_healthPoint = this.max_healthPoint;
         cam = GetComponent<CameraTarget>();
         PlayerAudio = GetComponent<AudioSource>();
+        spawnPos = transform.position;
     }
 
 
@@ -181,7 +186,18 @@ public class Controller : Character
 
     public void die()
     {
-        RestartGame();
+        soulCounter--;
+        if (soulCounter > 0)
+        {
+            if (hasWeapon) skullPos.position = transform.position;
+            setHasWeapon(false);
+            current_healthPoint = max_healthPoint;
+            transform.position = spawnPos;
+            transform.rotation = Quaternion.identity;
+            skullPos.gameObject.SetActive(true);
+        }
+        else
+            RestartGame();
     }
 
     public void regen(int value)
@@ -199,10 +215,14 @@ public class Controller : Character
 
     public void setHasWeapon()
     {
-        skull.SetActive(true);
-        soul.SetActive(false);
-        hasWeapon = true;
-        levelOfWeapon = 1;
+        setHasWeapon(true);
+    }
+
+    private void setHasWeapon(bool hasWeapon)
+    {
+        skull.SetActive(hasWeapon);
+        soul.SetActive(!hasWeapon);
+        this.hasWeapon = hasWeapon;
     }
 
     public bool HasWeapon { get => hasWeapon; }
