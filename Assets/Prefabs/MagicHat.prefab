@@ -66,10 +66,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBad: 1
+  typeOfMob: 1
   current_healthPoint: 0
-  movementSpeed: 15
+  movementSpeed: 25
   damageDone: 1
-  period: 0.5
+  period: 0.4
   soundEffect_death: {fileID: 0}
 --- !u!195 &1226514756301788049
 NavMeshAgent:

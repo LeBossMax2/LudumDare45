@@ -764,9 +764,9 @@ MonoBehaviour:
     spawn on the blue dots. Avoid the red ones ! They're the ennemies' spawn.\r\nItems
     give you bonus in percentage, so it's not that powerful at the beginning.\r\nThe
     maximum number of ennemies on the map is cap to save your computer from melting,
-    so please don't just avoid them :(\n\nPS: Once you got a body (move down left
-    at the beginning), you control this lovely little skull with blue eyes, so don't
-    forget to be a scary spooky skeleton\n\nHave fun !"
+    so please don't just avoid them :(\n\nPS : You need to find the skull ! Oh and
+    at some point the ennemies got more than hundreds of hp, so consider it's a lost
+    when you got more than 70 ennemies alive...\n\nHave fun !"
 --- !u!222 &659360527
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1294,7 +1294,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1707,9 +1707,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'We made this game in less than 2 days, with a team of 6 persons. For some
-    of us it was a first, but for all of us it was a good experience. We enjoy playing
-    our game, and want to upgrade it as soon as possible.
+  m_Text: '1.0.0
+
+    We made this game in less than 2 days, with a team of 6 persons. For some of us
+    it was a first, but for all of us it was a good experience. We enjoy playing our
+    game, and want to upgrade it as soon as possible.
 
 
     All of the graphics were made on paint, and the models with the Unity basics forms.
@@ -1720,7 +1722,18 @@ MonoBehaviour:
 
     Thanks to the University of Bordeaux to let us code in their buildings and to
     gave us a good and stable internet connexion (seriously, that can save a whole
-    project)'
+    project)
+
+
+    1.0.1
+
+    Rework on the map, new mob : magic hat, debuff on fantoms, player''s power : boost.
+
+
+    In coming :
+
+    Modifications on entities models, details on the map, soul item to reborn, options
+    on menu, more sounds effect, new menu image.'
 --- !u!222 &1201801347
 CanvasRenderer:
   m_ObjectHideFlags: 0

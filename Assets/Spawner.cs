@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class Spawner : MonoBehaviour
             }
             cd += Time.deltaTime;
         }
-        inUse = 40 > (HudController.ennemiesCount - Controller.killCount);
+        inUse = HudController.maxNumberEnnemies > (HudController.ennemiesCount);
     }
 
     protected virtual void Spawn()
@@ -53,23 +54,33 @@ public class Spawner : MonoBehaviour
         {
             if(ennemiesLeft < levelTwoWeight)
             {
-                GameObject prefab = Prefabs_firstLevel[Random.Range(0, Prefabs_firstLevel.Length)];
-                Ennemy_Controller ec = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ennemy_Controller>();
-                if(ec != null) {
+                GameObject badGuy = Instantiate(Prefabs_firstLevel[Random.Range(0, Prefabs_firstLevel.Length)], this.transform.position, Quaternion.identity);
+                Ennemy_Controller ec = badGuy.GetComponent<Ennemy_Controller>();
+                if (ec != null) {
                     ec.current_healthPoint = (int)(ec.current_healthPoint * Mathf.Max(1, Mathf.Pow(1.1F, counterEnnemiesGrowRate)));
-                    ec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.3F, ec.movementSpeed * Mathf.Pow(1.2F, counterEnnemiesGrowRate));
                 }
+
+                NavMeshAgent nva = badGuy.GetComponent<NavMeshAgent>();
+                nva.speed = Mathf.Min(10, nva.speed * Mathf.Pow(1.2F, counterEnnemiesGrowRate));
+                DirectedAgent da = badGuy.GetComponent<DirectedAgent>();
+                da.period *= Mathf.Min(2, Mathf.Max(0.8F, da.period * Mathf.Pow(0.8F, counterEnnemiesGrowRate)));
+
                 ennemiesLeft--;
             } else
             {
-                GameObject prefab = Prefabs_secondLevel[Random.Range(0, Prefabs_secondLevel.Length)];
-                Ranged_enemy_controllers ec = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ranged_enemy_controllers>();
+                GameObject badGuy = Instantiate(Prefabs_secondLevel[Random.Range(0, Prefabs_secondLevel.Length)], this.transform.position, Quaternion.identity);
+                Ranged_enemy_controllers ec = badGuy.GetComponent<Ranged_enemy_controllers>();
+
                 ec.current_healthPoint = ec.current_healthPoint * Mathf.Max(1, (int)(Mathf.Pow(1.1F, counterEnnemiesGrowRate)));
-                ec.movementSpeed = Mathf.Min(Controller.maxSpeed * 1.5F, ec.movementSpeed * Mathf.Pow(1.2F, counterEnnemiesGrowRate));
 
                 Ranged_enemy_directed_agent dirAgent = ec.GetComponent<Ranged_enemy_directed_agent>();
                 dirAgent.cd_fire = dirAgent.cd_fire * Mathf.Min(1, (Mathf.Pow(0.9F, counterEnnemiesGrowRate)));
                 dirAgent.bulletSpeed = dirAgent.bulletSpeed * Mathf.Min(Mathf.Max(1, (int)(Mathf.Pow(1.05F, counterEnnemiesGrowRate))),Controller.maxSpeed*1.3F);
+
+                NavMeshAgent nva = badGuy.GetComponent<NavMeshAgent>();
+                nva.speed = Mathf.Min(10, nva.speed * Mathf.Pow(1.2F, counterEnnemiesGrowRate));
+                Ranged_enemy_directed_agent reda = badGuy.GetComponent<Ranged_enemy_directed_agent>();
+                reda.period *= Mathf.Min(2, Mathf.Max(0.8F, reda.period * Mathf.Pow(0.9F, counterEnnemiesGrowRate)));
 
                 ennemiesLeft -= levelTwoWeight;
             }

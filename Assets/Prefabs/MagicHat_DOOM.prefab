@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1226514756301788044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.849871, y: 0.504, z: -6.9}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children:
   - {fileID: 1226514756545248551}
   - {fileID: 4967954724942013247}
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBad: 1
-  current_healthPoint: 10
-  movementSpeed: 10
+  current_healthPoint: 30
+  movementSpeed: 15
   damageDone: 1
   GhostDeath: {fileID: 8300000, guid: 948044aa3ee2e60459b0f48da4e21a03, type: 3}
 --- !u!1 &1226514756545248550

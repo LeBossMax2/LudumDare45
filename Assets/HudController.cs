@@ -10,6 +10,7 @@ public class HudController : MonoBehaviour
     public Text kills;
     public Text pause;
 
+    public static int maxNumberEnnemies = 70;
     public static int ennemiesCount = 0;
     public Text ennemiesCounter;
 
@@ -35,7 +36,7 @@ public class HudController : MonoBehaviour
         int time = (int)Time.timeSinceLevelLoad;
 
         // Condition to start a new wave
-        if(0 == (time % 60) && newWave)
+        if(0 == (time % WaveDuration) && newWave)
         {
             newWave = false;
             currentWaveNumber++;
@@ -43,9 +44,10 @@ public class HudController : MonoBehaviour
             {
                 list_spawns[i].restart();
                 list_spawns[i].localWaveNumber++;
+                list_spawns[i].ennemiesPerWave = Mathf.Min(list_spawns[i].ennemiesPerWave+1, list_spawns[i].maxEnnemiesPerWave);
             }
         }
-        if(0 != (time % 60))
+        if(0 != (time % WaveDuration))
         {
             newWave = true;
         }

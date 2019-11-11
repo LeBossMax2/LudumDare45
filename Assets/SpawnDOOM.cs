@@ -33,21 +33,24 @@ public class SpawnDOOM : MonoBehaviour
             }
             cd += Time.deltaTime;
         }
-        inUse = 40 > (HudController.ennemiesCount);
+        inUse = HudController.maxNumberEnnemies > (HudController.ennemiesCount);
     }
 
     private void Spawn()
     {
         if (cd >= cd_spawn / ennemiesPerWave)
         {
-            GameObject prefab = minions[Random.Range(0, minions.Length)];
-            Ennemy_Controller ec = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Ennemy_Controller>();
-
+            GameObject badGuy = Instantiate(minions[Random.Range(0, minions.Length)], this.transform.position, Quaternion.identity);
+            Ennemy_Controller ec = badGuy.GetComponent<Ennemy_Controller>();
+            Ranged_enemy_controllers hp = this.GetComponent<Ranged_enemy_controllers>();
             ennemiesLeft--;
             HudController.ennemiesCount++;
-            Ranged_enemy_controllers hp = this.GetComponent<Ranged_enemy_controllers>();
             if(hp != null)
             {
+                if(null != ec)
+                {
+                    ec.damageDone+=(int)(hp.current_healthPoint/2);
+                }
                 hp.current_healthPoint++;
             }
             cd = 0;

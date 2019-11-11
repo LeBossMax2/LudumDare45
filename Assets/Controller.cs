@@ -119,50 +119,47 @@ public class Controller : Character
         if(damageDone >=5 || reloadDelay <= 0.1F)
         {
             levelOfWeapon++;
-            damageDone = 1;
-            reloadDelay = 0.5F;
+            damageDone = Math.Max(1,damageDone/2);
+            reloadDelay = Mathf.Min(0.5F,reloadDelay*2);
         }
-        switch (levelOfWeapon)
-        {
-            case 2:
-                Bullet b2 = Instantiate(bullet);
-                b2.transform.position = transform.position;
-                b2.damage = damageDone;
-                Vector3 dirB2 = mouseDir;
-                if((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
-                {
-                    dirB2.x += -2;
-                    dirB2.z += 2;
-                } else
-                {
-                    dirB2.x += 2;
-                    dirB2.z += 2;
-                }
-                b2.shoot(bulletSpeed, dirB2);
 
-                Bullet b2_1 = Instantiate(bullet);
-                b2_1.transform.position = transform.position;
-                b2_1.damage = damageDone;
-                Vector3 dirB2_1 = mouseDir;
-                if ((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
-                {
-                    dirB2_1.x += 2;
-                    dirB2_1.z += -2;
-                }
-                else
-                {
-                    dirB2_1.x += -2;
-                    dirB2_1.z += -2;
-                }
-                b2_1.shoot(bulletSpeed, dirB2_1);
-                break;
-            case 1:
-            default:
-                Bullet b = Instantiate(bullet);
-                b.transform.position = transform.position;
-                b.damage = (int)(damageDone* Mathf.Pow(1.1F,levelOfWeapon));
-                b.shoot(bulletSpeed, mouseDir);
-                break;
+        if(0 == levelOfWeapon % 2)
+        {
+            Bullet b2 = Instantiate(bullet);
+            b2.transform.position = transform.position;
+            b2.damage = (int)(damageDone * Mathf.Pow(1.15F, levelOfWeapon));
+            Vector3 dirB2 = mouseDir;
+            if ((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
+            {
+                dirB2.x += -2;
+                dirB2.z += 2;
+            } else
+            {
+                dirB2.x += 2;
+                dirB2.z += 2;
+            }
+            b2.shoot(bulletSpeed, dirB2);
+
+            Bullet b2_1 = Instantiate(bullet);
+            b2_1.transform.position = transform.position;
+            b2_1.damage = (int)(damageDone * Mathf.Pow(1.15F, levelOfWeapon));
+            Vector3 dirB2_1 = mouseDir;
+            if ((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
+            {
+                dirB2_1.x += 2;
+                dirB2_1.z += -2;
+            } else
+            {
+                dirB2_1.x += -2;
+                dirB2_1.z += -2;
+            }
+            b2_1.shoot(bulletSpeed, dirB2_1);
+        } else
+        {
+            Bullet b = Instantiate(bullet);
+            b.transform.position = transform.position;
+            b.damage = (int)(damageDone * Mathf.Pow(1.3F, levelOfWeapon));
+            b.shoot(bulletSpeed, mouseDir);
         }
 
         GetComponent<AudioSource>().PlayOneShot(BulletShoot, 0.5f);
@@ -180,7 +177,7 @@ public class Controller : Character
         gameOverTexts got = FindObjectOfType<gameOverTexts>();
         if(null != got)
         {
-            got.killNumberText.text = "Kills : " + killCount;
+            got.killNumberText.text = "Score : " + killCount;
         }
     }
 

@@ -12,6 +12,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoulItemSpeed
       objectReference: {fileID: 0}
+    - target: {fileID: 1229785711047749241, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2f485249463c614681be9da62432b57, type: 2}
+    - target: {fileID: 1229785711047749245, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2f485249463c614681be9da62432b57, type: 2}
     - target: {fileID: 1229785711047749247, guid: 9be4e3420318aa24fa1aee75a7617860,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,26 +77,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9102108897909980550, guid: 9be4e3420318aa24fa1aee75a7617860,
-        type: 3}
-      propertyPath: type
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9102108897909980550, guid: 9be4e3420318aa24fa1aee75a7617860,
-        type: 3}
-      propertyPath: minValue
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9102108897909980550, guid: 9be4e3420318aa24fa1aee75a7617860,
-        type: 3}
-      propertyPath: maxValue
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1229785711047749241, guid: 9be4e3420318aa24fa1aee75a7617860,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f2f485249463c614681be9da62432b57, type: 2}
     - target: {fileID: 1229785711047749246, guid: 9be4e3420318aa24fa1aee75a7617860,
         type: 3}
       propertyPath: m_Color.r
@@ -97,11 +87,21 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.39215684
       objectReference: {fileID: 0}
-    - target: {fileID: 1229785711047749245, guid: 9be4e3420318aa24fa1aee75a7617860,
+    - target: {fileID: 9102108897909980550, guid: 9be4e3420318aa24fa1aee75a7617860,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f2f485249463c614681be9da62432b57, type: 2}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102108897909980550, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: minValue
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102108897909980550, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: maxValue
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 2768580604628075924, guid: 9be4e3420318aa24fa1aee75a7617860,
         type: 3}
       propertyPath: m_Text

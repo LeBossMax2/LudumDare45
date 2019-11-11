@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Ennemy_Controller : Character
 {
+    public enum type
+    {
+        pumkin,
+        minion
+    }
+    public type typeOfMob;
+
     public int current_healthPoint = 0;
     // Time value
     public float movementSpeed = 10;
@@ -27,7 +34,10 @@ public class Ennemy_Controller : Character
 
     public void die()
     {
-        Controller.killCount++;
+        if(type.minion != typeOfMob)
+        {
+            Controller.killCount++;
+        }
         HudController.ennemiesCount--;
         Destroy(gameObject);
     }

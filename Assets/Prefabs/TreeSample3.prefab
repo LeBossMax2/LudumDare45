@@ -98,10 +98,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.7577692
+  m_Radius: 0.87673867
   m_Height: 20.678244
   m_Direction: 1
-  m_Center: {x: -0.51099026, y: 4.4034624, z: 0.32554233}
+  m_Center: {x: -0.20270526, y: 4.4034624, z: 0.32554245}
 --- !u!21 &-6111541629729019882
 Material:
   serializedVersion: 6
