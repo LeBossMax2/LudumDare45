@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Controller : Character
 {
-    private bool stopTime = false;
     public static int killCount = 0;
 
     public CameraTarget cam;
@@ -65,14 +64,13 @@ public class Controller : Character
         {
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton1))
             {
-                stopTime = !stopTime;
-                Time.timeScale = stopTime ? 0 : 1;
-                foreach(AudioSource audioSource in (cam.camHolder.GetComponentsInChildren<AudioSource>()))
+                Time.timeScale = 0;
+                foreach (AudioSource audioSource in (cam.camHolder.GetComponentsInChildren<AudioSource>()))
                 {
                     audioSource.Pause();
                 }
 
-                SceneManager.LoadScene("Pause",LoadSceneMode.Additive);
+                SceneManager.LoadScene("Pause", LoadSceneMode.Additive);
             }
             movement.x = 0;
             movement.y = 0;
