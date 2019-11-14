@@ -43,8 +43,9 @@ public class SpawnWave : MonoBehaviour
             if (ec != null)
             {
                 ec.current_healthPoint = (int)(ec.current_healthPoint * Mathf.Max(1, Mathf.Pow(1.1F, HudController.currentWaveNumber-9)));
+                ec.damageDone += HudController.currentWaveNumber;
                 DirectedAgent da = badGuy.GetComponent<DirectedAgent>();
-                da.period *= Mathf.Min(2, Mathf.Max(0.8F, da.period * Mathf.Pow(0.8F, HudController.currentWaveNumber - 9)));
+                da.period *= Mathf.Min(2, Mathf.Max(0.5F, da.period * Mathf.Pow(0.8F, HudController.currentWaveNumber - 9)));
             } else
             {
                 Ranged_enemy_controllers rec = badGuy.GetComponent<Ranged_enemy_controllers>();
@@ -56,7 +57,7 @@ public class SpawnWave : MonoBehaviour
                     dirAgent.bulletSpeed = dirAgent.bulletSpeed * Mathf.Min(Mathf.Max(1, (int)(Mathf.Pow(1.05F, HudController.currentWaveNumber - 9))), Controller.maxSpeed * 1.3F);
                 }
                 Ranged_enemy_directed_agent reda = badGuy.GetComponent<Ranged_enemy_directed_agent>();
-                reda.period *= Mathf.Min(2, Mathf.Max(0.8F, reda.period * Mathf.Pow(0.8F, HudController.currentWaveNumber - 9)));
+                reda.period *= Mathf.Min(2, Mathf.Max(0.5F, reda.period * Mathf.Pow(0.8F, HudController.currentWaveNumber - 9)));
             }
 
             NavMeshAgent nva = badGuy.GetComponent<NavMeshAgent>();

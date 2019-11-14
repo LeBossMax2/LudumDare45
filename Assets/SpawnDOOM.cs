@@ -51,8 +51,10 @@ public class SpawnDOOM : MonoBehaviour
                 if(null != ec)
                 {
                     NavMeshAgent nma = badGuy.GetComponent<NavMeshAgent>();
-                    nma.speed = this.GetComponent<NavMeshAgent>().speed*1.1F;
-                    ec.damageDone+=(int)(hp.current_healthPoint/2);
+                    nma.speed = this.GetComponent<NavMeshAgent>().speed*1.25F;
+                    DirectedAgent da = badGuy.GetComponent<DirectedAgent>();
+                    da.period *= this.GetComponent<Ranged_enemy_directed_agent>().period*0.8F;
+                    ec.damageDone+= (int)Mathf.Max((hp.current_healthPoint/2), HudController.currentWaveNumber*1.3F);
                 }
                 hp.current_healthPoint++;
             }

@@ -39,8 +39,8 @@ public class SoolItem : MonoBehaviour
             switch (type)
             {
                 case BonusType.Max_HP:
-                    c.max_healthPoint += value;
-                    c.regen(value);
+                    c.max_healthPoint += value+(5*c.max_healthPoint/100);
+                    c.regen(value + (5 * c.max_healthPoint / 100));
                     break;
                 case BonusType.HP_Regen:
                     c.regen(value * c.max_healthPoint / 100);
