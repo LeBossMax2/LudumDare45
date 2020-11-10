@@ -127,43 +127,49 @@ public class Controller : Character
             reloadDelay = Mathf.Min(0.5F,reloadDelay+0.15F);
         }
 
-        if(0 == levelOfWeapon % 2)
-        {
-            Bullet b2 = Instantiate(bullet);
-            b2.transform.position = transform.position;
-            b2.damage = (int)(damageDone * Mathf.Pow(2, levelOfWeapon));
-            Vector3 dirB2 = mouseDir;
-            if ((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
-            {
-                dirB2.x += -2;
-                dirB2.z += 2;
-            } else
-            {
-                dirB2.x += 2;
-                dirB2.z += 2;
-            }
-            b2.shoot(bulletSpeed, dirB2);
-
-            Bullet b2_1 = Instantiate(bullet);
-            b2_1.transform.position = transform.position;
-            b2_1.damage = (int)(damageDone * Mathf.Pow(2, levelOfWeapon));
-            Vector3 dirB2_1 = mouseDir;
-            if ((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
-            {
-                dirB2_1.x += 2;
-                dirB2_1.z += -2;
-            } else
-            {
-                dirB2_1.x += -2;
-                dirB2_1.z += -2;
-            }
-            b2_1.shoot(bulletSpeed, dirB2_1);
-        } else
+        int centralShot = levelOfWeapon % 2;
+        int pairLevelOfWeapon = levelOfWeapon-centralShot;
+        if (1 == centralShot)
         {
             Bullet b = Instantiate(bullet);
             b.transform.position = transform.position;
             b.damage = (int)(damageDone * Mathf.Pow(2.3F, levelOfWeapon));
             b.shoot(bulletSpeed, mouseDir);
+        }
+
+        for (int i = 1; i <= pairLevelOfWeapon/2; i++)
+        {
+            Bullet b = Instantiate(bullet);
+            b.transform.position = transform.position;
+            b.damage = (int)(damageDone * Mathf.Pow(2.3F, levelOfWeapon));
+            Vector3 dirrectionBullet = mouseDir;
+            if ((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
+            {
+                dirrectionBullet.x += -i;
+                dirrectionBullet.z += i;
+            }
+            else
+            {
+                dirrectionBullet.x += i;
+                dirrectionBullet.z += i;
+            }
+            b.shoot(bulletSpeed, dirrectionBullet);
+
+            Bullet b2 = Instantiate(bullet);
+            b2.transform.position = transform.position;
+            b2.damage = (int)(damageDone * Mathf.Pow(2.3F, levelOfWeapon));
+            dirrectionBullet = mouseDir;
+            if ((mouseDir.x > 0 && mouseDir.z > 0) || (mouseDir.x <= 0 && mouseDir.z <= 0))
+            {
+                dirrectionBullet.x += i;
+                dirrectionBullet.z += -i;
+            }
+            else
+            {
+                dirrectionBullet.x += -i;
+                dirrectionBullet.z += -i;
+            }
+            b2.shoot(bulletSpeed, dirrectionBullet);
         }
 
         GetComponent<AudioSource>().PlayOneShot(BulletShoot, 0.5f);
