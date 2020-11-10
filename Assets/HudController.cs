@@ -15,17 +15,13 @@ public class HudController : MonoBehaviour
     public Text ennemiesCounter;
 
     public Controller player;
-
-    public SpawnWave[] list_spawns;
-    public static int currentWaveNumber = 1;
-    public int WaveDuration = 60;
+    public static int currentWaveNumber = 0;
 
     // to delete later
     public bool newWave = true;
 
     private void Awake()
     {
-        currentWaveNumber = 0;
         ennemiesCount = 0;
     }
 
@@ -35,22 +31,6 @@ public class HudController : MonoBehaviour
 
         int time = (int)Time.timeSinceLevelLoad;
 
-        // Condition to start a new wave
-        if(0 == (time % WaveDuration) && newWave)
-        {
-            newWave = false;
-            currentWaveNumber++;
-            for(int i=0;i<list_spawns.Length;i++)
-            {
-                list_spawns[i].restart();
-                list_spawns[i].localWaveNumber++;
-                list_spawns[i].ennemiesPerWave = Mathf.Min(list_spawns[i].ennemiesPerWave+1, list_spawns[i].maxEnnemiesPerWave);
-            }
-        }
-        if(0 != (time % WaveDuration))
-        {
-            newWave = true;
-        }
         timer.text = (time/60).ToString("D2") + ":" + (time % 60).ToString("D2");
         hp.text = player.current_healthPoint + " / " + player.max_healthPoint;
         kills.text = Controller.killCount.ToString();

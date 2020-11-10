@@ -110,7 +110,8 @@ public class Controller : Character
             else if (skullArrowIndicator != null && skullPos != null)
                 skullArrowIndicator.localRotation = Quaternion.LookRotation(skullPos.position - transform.position, Vector3.up);
 
-            if (this.transform.position.y <= -10 || this.current_healthPoint <= 0)
+            //If the player is leaving the map or doesn't have any hp left
+            if (Math.Abs(this.transform.position.y) >= 10 || this.current_healthPoint <= 0)
             {
                 RestartGame();
             }
@@ -178,8 +179,6 @@ public class Controller : Character
     {
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         PlayerPrefs.SetInt("score", killCount);
-        int hs = PlayerPrefs.GetInt("highscore",0);
-        PlayerPrefs.SetInt("highScore",Mathf.Max(hs,killCount));
     }
 
     public void die()
