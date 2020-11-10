@@ -9,11 +9,12 @@ public class gameOverTexts : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int hs = PlayerPrefs.GetInt("highScore", 0);
-        int sc = PlayerPrefs.GetInt("score", 0);
+        int hs = PlayerPrefs.GetInt("SPOOKTOBERSURVIVAL_highScore", 0);
+        int sc = PlayerPrefs.GetInt("SPOOKTOBERSURVIVAL_score", 0);
         killNumberText.text = "Highscore : " + hs + " -> " + Mathf.Max(hs,sc)+"\n"
-            + "Actual score : " + sc;
-        PlayerPrefs.SetInt("highScore", Mathf.Max(hs,sc));
+            + "Actual score : " + sc + "\n"
+            + "Damage per bullet : " + PlayerPrefs.GetInt("SPOOKTOBERSURVIVAL_dmg", 0);
+        PlayerPrefs.SetInt("SPOOKTOBERSURVIVAL_highScore", Mathf.Max(hs,sc));
     }
 
     // Update is called once per frame

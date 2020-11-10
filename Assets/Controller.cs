@@ -13,8 +13,8 @@ public class Controller : Character
     public int max_healthPoint = 100;
     public int current_healthPoint = 1;
     // Time value
-    public float movementSpeed = 300;
-    public static float maxSpeed = 800;
+    public float movementSpeed = 350;
+    public static float maxSpeed = 700;
 
     public float reloadDelay = 10;
     public int damageDone = 1;
@@ -69,7 +69,7 @@ public class Controller : Character
                 {
                     audioSource.Pause();
                 }
-
+                PlayerPrefs.SetInt("SPOOKTOBERSURVIVAL_dmg", (int)(damageDone * Mathf.Pow(2.3F, levelOfWeapon)));
                 SceneManager.LoadScene("Pause", LoadSceneMode.Additive);
             }
             movement.x = 0;
@@ -110,8 +110,8 @@ public class Controller : Character
             else if (skullArrowIndicator != null && skullPos != null)
                 skullArrowIndicator.localRotation = Quaternion.LookRotation(skullPos.position - transform.position, Vector3.up);
 
-            //If the player is leaving the map or doesn't have any hp left
-            if (Math.Abs(this.transform.position.y) >= 10 || this.current_healthPoint <= 0)
+            //If the player is leaving the map or doesn't have any hp left or if he doesn't want to kill anyone
+            if (Math.Abs(this.transform.position.y) >= 10 || this.current_healthPoint <= 0 || HudController.ennemiesCount>HudController.maxNumberEnnemies)
             {
                 RestartGame();
             }
@@ -127,7 +127,12 @@ public class Controller : Character
             reloadDelay = Mathf.Min(0.5F,reloadDelay+0.15F);
         }
 
-        int centralShot = levelOfWeapon % 2;
+        Bullet b = Instantiate(bullet);
+        b.transform.position = transform.position;
+        b.damage = (int)(damageDone * Mathf.Pow(2.3F, levelOfWeapon));
+        b.shoot(bulletSpeed, mouseDir);
+
+        /*int centralShot = levelOfWeapon % 2;
         int pairLevelOfWeapon = levelOfWeapon-centralShot;
         if (1 == centralShot)
         {
@@ -135,8 +140,9 @@ public class Controller : Character
             b.transform.position = transform.position;
             b.damage = (int)(damageDone * Mathf.Pow(2.3F, levelOfWeapon));
             b.shoot(bulletSpeed, mouseDir);
-        }
-
+        }*/
+        // Generate a collision bug where entities are killed twice or more instead of just one...
+        /*
         for (int i = 1; i <= pairLevelOfWeapon/2; i++)
         {
             Bullet b = Instantiate(bullet);
@@ -171,7 +177,7 @@ public class Controller : Character
             }
             b2.shoot(bulletSpeed, dirrectionBullet);
         }
-
+        */
         GetComponent<AudioSource>().PlayOneShot(BulletShoot, 0.5f);
         reloadTimer = reloadDelay;
     }
@@ -184,7 +190,8 @@ public class Controller : Character
     public void RestartGame()
     {
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
-        PlayerPrefs.SetInt("score", killCount);
+        PlayerPrefs.SetInt("SPOOKTOBERSURVIVAL_score", killCount);
+        PlayerPrefs.SetInt("SPOOKTOBERSURVIVAL_dmg", (int)(damageDone * Mathf.Pow(2.3F, levelOfWeapon)));
     }
 
     public void die()

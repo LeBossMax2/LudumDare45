@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class menuManager : MonoBehaviour
 {
 
     public GameObject panel_help;
     public GameObject panel_infos;
+    public Text panel_infosPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(null != panel_infosPlayer)
+        {
+            panel_infosPlayer.text = "Dmg per shot : " + PlayerPrefs.GetInt("SPOOKTOBERSURVIVAL_dmg", 0);
+        }
     }
 
     // Update is called once per frame
