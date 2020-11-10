@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48001fe8143d18f4a84f642d8ab4959f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 7
   minValue: 0
   maxValue: 0
 --- !u!1 &3082179806569442921
@@ -216,6 +216,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037783716410484765, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80ce2eaa8b2778446b80105e2bf4a3d7, type: 2}
+    - target: {fileID: 5037783716410484762, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.69068176
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037783716410484762, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.38714847
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037783716410484762, guid: 430c5b2d02839f14bae945ecd5803861,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.9433962
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 430c5b2d02839f14bae945ecd5803861, type: 3}

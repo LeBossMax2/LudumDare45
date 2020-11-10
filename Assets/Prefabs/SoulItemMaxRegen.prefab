@@ -82,6 +82,21 @@ PrefabInstance:
       propertyPath: maxValue
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1229785711047749246, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.38823533
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229785711047749246, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.8779318
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229785711047749246, guid: 9be4e3420318aa24fa1aee75a7617860,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.94509804
+      objectReference: {fileID: 0}
     - target: {fileID: 2768580604628075924, guid: 9be4e3420318aa24fa1aee75a7617860,
         type: 3}
       propertyPath: m_Text
