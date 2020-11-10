@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2606210808573972448, guid: 8d658364eaa8d034faffb7f67688b4a7,
         type: 3}
       propertyPath: m_Name
-      value: ennemy Variant
+      value: ennemy Variant2
       objectReference: {fileID: 0}
     - target: {fileID: 4176994722830647218, guid: 8d658364eaa8d034faffb7f67688b4a7,
         type: 3}
@@ -96,6 +96,11 @@ PrefabInstance:
         type: 3}
       propertyPath: damageDone
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834797997390150255, guid: 8d658364eaa8d034faffb7f67688b4a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4958376355235289453, guid: 8d658364eaa8d034faffb7f67688b4a7,
         type: 3}

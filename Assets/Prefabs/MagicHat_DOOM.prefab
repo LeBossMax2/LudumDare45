@@ -101,14 +101,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1226514756301788044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff94244849fa75459ada5bdf82c66c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fcc9a1e84285eb4cadb198deab53040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cd_spawn: 60
-  maxEnnemiesPerWave: 15
-  ennemiesPerWave: 8
+  ennemiesPerWave: 5
+  timeToSpawnOneEnnemy: 10
   minions:
   - {fileID: 1226514756301788044, guid: b8de6cbff96b96b45a52209c797cc257, type: 3}
+  minionsProbas: 64000000
+  healPerMinion: 10
+  active: 0
+  localWaveNumber: 1
 --- !u!114 &2065238867
 MonoBehaviour:
   m_ObjectHideFlags: 0
