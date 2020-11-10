@@ -12,7 +12,7 @@ public class DirectedAgent : MonoBehaviour
     private GameObject player = null;
 
     private float nextActionTime = 0.0f;
-    public float period = 2.0f;
+    public float period = 1.0f;
 
     // Start is called before the first frame update
     void Start()

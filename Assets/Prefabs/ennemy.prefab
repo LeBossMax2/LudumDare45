@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc28b729a4fba84890b1524fc40b950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 2
+  period: 1
 --- !u!195 &-4911957337565392584
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBad: 1
+  typeOfMob: 0
   current_healthPoint: 5
   movementSpeed: 20
   damageDone: 5

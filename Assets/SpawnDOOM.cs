@@ -21,38 +21,34 @@ public class SpawnDOOM : MonoBehaviour
     void Update()
     {
         cd += Time.deltaTime;
-        if (active)
-        {
-            Spawn();
-        }
-        else if (cd >= timeToSpawnOneEnnemy)
+        if (cd >= timeToSpawnOneEnnemy)
         {
             active = HudController.maxNumberEnnemies > (HudController.ennemiesCount);
+            if (active)
+            {
+                Spawn();
+            }
             cd = 0;
         }
     }
 
     void Spawn()
     {
-        if (cd >= timeToSpawnOneEnnemy)
+        GameObject badGuy = Instantiate(minions[Random.Range(0, minions.Length)], this.transform.position, Quaternion.identity);
+        Ranged_enemy_controllers hp = this.GetComponent<Ranged_enemy_controllers>();
+        if (hp != null)
         {
-            GameObject badGuy = Instantiate(minions[Random.Range(0, minions.Length)], this.transform.position, Quaternion.identity);
-            Ranged_enemy_controllers hp = this.GetComponent<Ranged_enemy_controllers>();
-            if (hp != null)
-            {
-                badGuy.GetComponent<NavMeshAgent>().speed = this.GetComponent<NavMeshAgent>().speed * 1.25F;
-                badGuy.GetComponent<DirectedAgent>().period *= this.GetComponent<Ranged_enemy_directed_agent>().period * 0.8F;
-                badGuy.GetComponent<Ennemy_Controller>().damageDone += (int)Mathf.Max((hp.current_healthPoint*0.3F), localWaveNumber * 1.3F);
-                entGeneratedThisWave++;
-                hp.current_healthPoint+=healPerMinion;
-            }
-            cd = 0;
+            badGuy.GetComponent<NavMeshAgent>().speed = this.GetComponent<NavMeshAgent>().speed * 1.25F;
+            badGuy.GetComponent<DirectedAgent>().period *= this.GetComponent<Ranged_enemy_directed_agent>().period * 0.8F;
+            badGuy.GetComponent<Ennemy_Controller>().damageDone += (int)Mathf.Max((hp.current_healthPoint*0.3F), localWaveNumber * 1.3F);
+            entGeneratedThisWave++;
             HudController.ennemiesCount++;
-            if (entGeneratedThisWave >= ennemiesPerWave)
-            {
-                localWaveNumber++;
-                entGeneratedThisWave = 0;
-            }
+            hp.current_healthPoint+=healPerMinion*localWaveNumber;
+        }
+        if (entGeneratedThisWave >= ennemiesPerWave)
+        {
+            localWaveNumber++;
+            entGeneratedThisWave = 0;
         }
     }
 }

@@ -128,7 +128,7 @@ MonoBehaviour:
   distance: 10
   cd_fire: 2
   bullet: {fileID: 1601158908843475632, guid: 080d9c1d4286e3540986b9c1d1c29f82, type: 3}
-  damageDone: 10
+  damageDone: 8
   bulletSpeed: 4
 --- !u!114 &2065238868
 MonoBehaviour:

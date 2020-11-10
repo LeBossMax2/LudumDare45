@@ -65,26 +65,27 @@ public class SpawnWave : MonoBehaviour
             Ennemy_Controller ec = badGuy.GetComponent<Ennemy_Controller>();
             if (ec != null)
             {
-                ec.current_healthPoint = (int)(ec.current_healthPoint * Mathf.Max(1, Mathf.Pow(1.1F, localWaveNumber - 9)));
-                ec.damageDone += localWaveNumber;
+                // Because fuck the player ! I want the ennemies to have hp
+                ec.current_healthPoint = (int)(Mathf.Max(ec.current_healthPoint, ec.current_healthPoint * localWaveNumber * 1.05F));
+                ec.damageDone += localWaveNumber*2;
                 DirectedAgent da = badGuy.GetComponent<DirectedAgent>();
-                da.period *= Mathf.Min(2, Mathf.Max(0.5F, da.period * Mathf.Pow(0.8F, localWaveNumber - 9)));
+                da.period *= Mathf.Min(2, Mathf.Max(0.5F, da.period * Mathf.Pow(0.8F, localWaveNumber)));
             } else
             {
                 Ranged_enemy_controllers rec = badGuy.GetComponent<Ranged_enemy_controllers>();
                 if(rec != null)
                 {
-                    rec.current_healthPoint = rec.current_healthPoint * Mathf.Max(1, (int)(Mathf.Pow(1.1F, localWaveNumber - 9)));
+                    rec.current_healthPoint = (int)(Mathf.Max(rec.current_healthPoint, rec.current_healthPoint * localWaveNumber * 1.03F));
                     Ranged_enemy_directed_agent dirAgent = rec.GetComponent<Ranged_enemy_directed_agent>();
-                    dirAgent.cd_fire = dirAgent.cd_fire * Mathf.Min(1, (Mathf.Pow(0.86F, localWaveNumber - 9)));
-                    dirAgent.bulletSpeed = dirAgent.bulletSpeed * Mathf.Min(Mathf.Max(1, (int)(Mathf.Pow(1.05F, localWaveNumber - 9))), Controller.maxSpeed * 1.3F);
+                    dirAgent.cd_fire = dirAgent.cd_fire * Mathf.Min(1, (Mathf.Pow(0.9F, localWaveNumber)));
+                    dirAgent.bulletSpeed = dirAgent.bulletSpeed * Mathf.Min(Mathf.Max(1, (int)(Mathf.Pow(1.05F, localWaveNumber))), Controller.maxSpeed * 1.3F);
                 }
                 Ranged_enemy_directed_agent reda = badGuy.GetComponent<Ranged_enemy_directed_agent>();
-                reda.period *= Mathf.Min(2, Mathf.Max(0.5F, reda.period * Mathf.Pow(0.8F, localWaveNumber - 9)));
+                reda.period *= Mathf.Min(2, Mathf.Max(0.5F, reda.period * Mathf.Pow(0.8F, localWaveNumber)));
             }
 
             NavMeshAgent nva = badGuy.GetComponent<NavMeshAgent>();
-            nva.speed = Mathf.Min(13, nva.speed * Mathf.Pow(1.08F, localWaveNumber - 9));
+            nva.speed = Mathf.Min(13, nva.speed * Mathf.Pow(1.08F, localWaveNumber));
 
             cd = 0;
             HudController.ennemiesCount++;
