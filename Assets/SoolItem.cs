@@ -11,7 +11,9 @@ public class SoolItem : MonoBehaviour
         Dmg,
         Speed,
         FireRate,
-        Respawn
+        Respawn,
+        ItemTimer,
+        Nothing
     }
 
     public BonusType type;
@@ -40,7 +42,8 @@ public class SoolItem : MonoBehaviour
             {
                 case BonusType.Max_HP:
                     c.max_healthPoint += value+(5*c.max_healthPoint/100);
-                    c.regen(value + (5 * c.max_healthPoint / 100));
+                    // We heal a bit more than we augment the player hp
+                    c.regen(value + (10 * c.max_healthPoint / 100));
                     break;
                 case BonusType.HP_Regen:
                     c.regen(value * c.max_healthPoint / 100);
@@ -57,6 +60,16 @@ public class SoolItem : MonoBehaviour
                     break;
                 case BonusType.Respawn:
                     c.soulCounter += value;
+                    break;
+                case BonusType.ItemTimer:
+                    // 20 sec is the minimum interval between 2 spawn
+                    if (spawner != null)
+                    {
+                        this.spawner.cd_spawn = Mathf.Max(this.spawner.cd_spawn - value, 20);
+                    }
+                    break;
+                case BonusType.Nothing:
+                default:
                     break;
             }
             if (spawner != null)
