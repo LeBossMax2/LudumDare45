@@ -13,6 +13,7 @@ public class SoolItem : MonoBehaviour
         FireRate,
         Respawn,
         ItemTimer,
+        ScorePoints,
         Nothing
     }
 
@@ -46,7 +47,8 @@ public class SoolItem : MonoBehaviour
                     c.regen(value + (10 * c.max_healthPoint / 100));
                     break;
                 case BonusType.HP_Regen:
-                    c.regen(value * c.max_healthPoint / 100);
+                    // The + 10 is a little hidden bonus from me because stay strong will ya ?
+                    c.regen((value * c.max_healthPoint / 100) + 10);
                     break;
                 case BonusType.Dmg:
                     c.damageDone += value;
@@ -67,6 +69,9 @@ public class SoolItem : MonoBehaviour
                     {
                         this.spawner.cd_spawn = Mathf.Max(this.spawner.cd_spawn - value, 20);
                     }
+                    break;
+                case BonusType.ScorePoints:
+                    Controller.killCount += this.value;
                     break;
                 case BonusType.Nothing:
                 default:
